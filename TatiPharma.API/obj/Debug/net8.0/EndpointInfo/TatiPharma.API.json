@@ -1,0 +1,1370 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "TatiPharma API",
+    "description": "Your API Description",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/Auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponseDtoApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponseDtoApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponseDtoApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Customer": {
+      "get": {
+        "tags": [
+          "Customer"
+        ],
+        "parameters": [
+          {
+            "name": "Search",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "IsActive",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "PageNumber",
+            "in": "query",
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerResponseDtoPagedResultApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerResponseDtoPagedResultApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerResponseDtoPagedResultApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Customer/{id}": {
+      "get": {
+        "tags": [
+          "Customer"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerDetailDtoApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerDetailDtoApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerDetailDtoApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Products": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "parameters": [
+          {
+            "name": "Search",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "IsActive",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "DrugTypeId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "DosageId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "ManufacturerId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "PageNumber",
+            "in": "query",
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductResponseDtoPagedResultApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductResponseDtoPagedResultApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductResponseDtoPagedResultApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Products/{id}": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductDetailDtoApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductDetailDtoApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductDetailDtoApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/User": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponseDtoListApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponseDtoListApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponseDtoListApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BatchSummaryDto": {
+        "type": "object",
+        "properties": {
+          "batchNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "remainingQty": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "isExpiringSoon": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustomerDetailDto": {
+        "type": "object",
+        "properties": {
+          "customerId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "cusCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "cusFirstname": {
+            "type": "string",
+            "nullable": true
+          },
+          "cusLastname": {
+            "type": "string",
+            "nullable": true
+          },
+          "cusMobileno": {
+            "type": "string",
+            "nullable": true
+          },
+          "cusPhonenoO": {
+            "type": "string",
+            "nullable": true
+          },
+          "cusPhonenoR": {
+            "type": "string",
+            "nullable": true
+          },
+          "cusEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "pin": {
+            "type": "string",
+            "nullable": true
+          },
+          "district": {
+            "type": "string",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "nullable": true
+          },
+          "employeeId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "bitIsActive": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "dateCreated": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "bitIsDelete": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "storeAmtremain": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "storeAmtused": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "region": {
+            "type": "string",
+            "nullable": true
+          },
+          "pbsllicense": {
+            "type": "string",
+            "nullable": true
+          },
+          "licenseType": {
+            "type": "string",
+            "nullable": true
+          },
+          "licenseExpiry": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "cusTypeId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "creditlim": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "creditdays": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "customerType": {
+            "$ref": "#/components/schemas/CustomerTypeDto"
+          },
+          "employee": {
+            "$ref": "#/components/schemas/EmployeeDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustomerDetailDtoApiResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "$ref": "#/components/schemas/CustomerDetailDto"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustomerResponseDto": {
+        "type": "object",
+        "properties": {
+          "customerId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "cusCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "cusFirstname": {
+            "type": "string",
+            "nullable": true
+          },
+          "cusLastname": {
+            "type": "string",
+            "nullable": true
+          },
+          "cusMobileno": {
+            "type": "string",
+            "nullable": true
+          },
+          "cusPhonenoO": {
+            "type": "string",
+            "nullable": true
+          },
+          "cusPhonenoR": {
+            "type": "string",
+            "nullable": true
+          },
+          "cusEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "pin": {
+            "type": "string",
+            "nullable": true
+          },
+          "district": {
+            "type": "string",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "nullable": true
+          },
+          "employeeId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "bitIsActive": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "dateCreated": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "bitIsDelete": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "storeAmtremain": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "storeAmtused": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "region": {
+            "type": "string",
+            "nullable": true
+          },
+          "pbsllicense": {
+            "type": "string",
+            "nullable": true
+          },
+          "licenseType": {
+            "type": "string",
+            "nullable": true
+          },
+          "licenseExpiry": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "cusTypeId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "creditlim": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "creditdays": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustomerResponseDtoPagedResult": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomerResponseDto"
+            },
+            "nullable": true
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "hasNextPage": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "hasPreviousPage": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustomerResponseDtoPagedResultApiResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "$ref": "#/components/schemas/CustomerResponseDtoPagedResult"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustomerTypeDto": {
+        "type": "object",
+        "properties": {
+          "cusTypeId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "cusTypeName": {
+            "type": "string",
+            "nullable": true
+          },
+          "bitIsActive": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "dateCreated": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "bitIsDelete": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DosageFormDto": {
+        "type": "object",
+        "properties": {
+          "dosageId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "dosageFormname": {
+            "type": "string",
+            "nullable": true
+          },
+          "dosageType": {
+            "type": "string",
+            "nullable": true
+          },
+          "bitIsActive": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DrugTypeMasterDto": {
+        "type": "object",
+        "properties": {
+          "drugTypeId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "drugTypeName": {
+            "type": "string",
+            "nullable": true
+          },
+          "bitIsActive": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EmployeeDto": {
+        "type": "object",
+        "properties": {
+          "employeeId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "employeeName": {
+            "type": "string",
+            "nullable": true
+          },
+          "empShort": {
+            "type": "string",
+            "nullable": true
+          },
+          "empPerson": {
+            "type": "string",
+            "nullable": true
+          },
+          "empPosition": {
+            "type": "string",
+            "nullable": true
+          },
+          "empEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "empMobile": {
+            "type": "string",
+            "nullable": true
+          },
+          "empAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "empType": {
+            "type": "string",
+            "nullable": true
+          },
+          "bitIsActive": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "dateCreated": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "bitIsDelete": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "empPassword": {
+            "type": "string",
+            "nullable": true
+          },
+          "bintUserId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "empStartDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginRequestDto": {
+        "type": "object",
+        "properties": {
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginResponseDto": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "roleName": {
+            "type": "string",
+            "nullable": true
+          },
+          "token": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginResponseDtoApiResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "$ref": "#/components/schemas/LoginResponseDto"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ManufacturerDto": {
+        "type": "object",
+        "properties": {
+          "manufacturerId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "manufacturerName": {
+            "type": "string",
+            "nullable": true
+          },
+          "mfg": {
+            "type": "string",
+            "nullable": true
+          },
+          "mfgPerson": {
+            "type": "string",
+            "nullable": true
+          },
+          "mfgEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "mfgMobile": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PriceBreakdownDto": {
+        "type": "object",
+        "properties": {
+          "unitCost": {
+            "type": "number",
+            "format": "double"
+          },
+          "marginPercent": {
+            "type": "number",
+            "format": "double"
+          },
+          "marginAmount": {
+            "type": "number",
+            "format": "double",
+            "readOnly": true
+          },
+          "salePrice": {
+            "type": "number",
+            "format": "double",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProductDetailDto": {
+        "type": "object",
+        "properties": {
+          "drugId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "drugCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "drugQuickcode": {
+            "type": "string",
+            "nullable": true
+          },
+          "drugName": {
+            "type": "string",
+            "nullable": true
+          },
+          "drugShort": {
+            "type": "string",
+            "nullable": true
+          },
+          "strength": {
+            "type": "string",
+            "nullable": true
+          },
+          "brandName": {
+            "type": "string",
+            "nullable": true
+          },
+          "quantityPack": {
+            "type": "string",
+            "nullable": true
+          },
+          "maxLevel": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "minLevel": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "narcotics": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "unitCost": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "margin": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "bitIsActive": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "dateCreated": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "drugTypeName": {
+            "type": "string",
+            "nullable": true
+          },
+          "dosageFormName": {
+            "type": "string",
+            "nullable": true
+          },
+          "manufacturerName": {
+            "type": "string",
+            "nullable": true
+          },
+          "theRapeuticclass": {
+            "type": "string",
+            "nullable": true
+          },
+          "drugNdccode": {
+            "type": "string",
+            "nullable": true
+          },
+          "drugType": {
+            "type": "string",
+            "nullable": true
+          },
+          "bitIsDelete": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "drugTypeId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "dosageId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "manufacturerId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "udiId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "uomId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "taxDetailsId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "taxid": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "drugTypeMaster": {
+            "$ref": "#/components/schemas/DrugTypeMasterDto"
+          },
+          "dosageForm": {
+            "$ref": "#/components/schemas/DosageFormDto"
+          },
+          "manufacturer": {
+            "$ref": "#/components/schemas/ManufacturerDto"
+          },
+          "stockSummary": {
+            "$ref": "#/components/schemas/StockSummaryDto"
+          },
+          "activeBatches": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BatchSummaryDto"
+            },
+            "nullable": true
+          },
+          "pricing": {
+            "$ref": "#/components/schemas/PriceBreakdownDto"
+          },
+          "isNarcotic": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isActive": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProductDetailDtoApiResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "$ref": "#/components/schemas/ProductDetailDto"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProductResponseDto": {
+        "type": "object",
+        "properties": {
+          "drugId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "drugCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "drugQuickcode": {
+            "type": "string",
+            "nullable": true
+          },
+          "drugName": {
+            "type": "string",
+            "nullable": true
+          },
+          "drugShort": {
+            "type": "string",
+            "nullable": true
+          },
+          "strength": {
+            "type": "string",
+            "nullable": true
+          },
+          "brandName": {
+            "type": "string",
+            "nullable": true
+          },
+          "quantityPack": {
+            "type": "string",
+            "nullable": true
+          },
+          "maxLevel": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "minLevel": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "narcotics": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "unitCost": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "margin": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "bitIsActive": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "dateCreated": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "drugTypeName": {
+            "type": "string",
+            "nullable": true
+          },
+          "dosageFormName": {
+            "type": "string",
+            "nullable": true
+          },
+          "manufacturerName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProductResponseDtoPagedResult": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductResponseDto"
+            },
+            "nullable": true
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "hasNextPage": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "hasPreviousPage": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProductResponseDtoPagedResultApiResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "$ref": "#/components/schemas/ProductResponseDtoPagedResult"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StockSummaryDto": {
+        "type": "object",
+        "properties": {
+          "totalPurchased": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "totalSold": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "currentStock": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "minLevel": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isLowStock": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isOutOfStock": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserResponseDto": {
+        "type": "object",
+        "properties": {
+          "bintUserId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "emailAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "strFirstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "strLastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "strMobileNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "bitIsActive": {
+            "type": "boolean"
+          },
+          "gender": {
+            "type": "string",
+            "nullable": true
+          },
+          "isMain": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserResponseDtoListApiResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserResponseDto"
+            },
+            "nullable": true
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "Please enter JWT with Bearer into field (e.g., 'Bearer {token}')",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}

@@ -1,0 +1,164 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\taati\\Api\\TatiPharmaAPI\\TatiPharma.Application\\TatiPharma.Application.csproj": {}
+  },
+  "projects": {
+    "E:\\taati\\Api\\TatiPharmaAPI\\TatiPharma.Application\\TatiPharma.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\taati\\Api\\TatiPharmaAPI\\TatiPharma.Application\\TatiPharma.Application.csproj",
+        "projectName": "TatiPharma.Application",
+        "projectPath": "E:\\taati\\Api\\TatiPharmaAPI\\TatiPharma.Application\\TatiPharma.Application.csproj",
+        "packagesPath": "C:\\Users\\Prince Bhindi\\.nuget\\packages\\",
+        "outputPath": "E:\\taati\\Api\\TatiPharmaAPI\\TatiPharma.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\Software\\visual studio setup\\vs sdk\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Prince Bhindi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "E:\\taati\\Api\\TatiPharmaAPI\\TatiPharma.Domain\\TatiPharma.Domain.csproj": {
+                "projectPath": "E:\\taati\\Api\\TatiPharmaAPI\\TatiPharma.Domain\\TatiPharma.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[9.0.10, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[9.0.10, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[8.14.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.14.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\taati\\Api\\TatiPharmaAPI\\TatiPharma.Domain\\TatiPharma.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\taati\\Api\\TatiPharmaAPI\\TatiPharma.Domain\\TatiPharma.Domain.csproj",
+        "projectName": "TatiPharma.Domain",
+        "projectPath": "E:\\taati\\Api\\TatiPharmaAPI\\TatiPharma.Domain\\TatiPharma.Domain.csproj",
+        "packagesPath": "C:\\Users\\Prince Bhindi\\.nuget\\packages\\",
+        "outputPath": "E:\\taati\\Api\\TatiPharmaAPI\\TatiPharma.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\Software\\visual studio setup\\vs sdk\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Prince Bhindi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
