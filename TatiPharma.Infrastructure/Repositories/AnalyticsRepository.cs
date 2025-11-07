@@ -137,5 +137,166 @@ namespace TatiPharma.Infrastructure.Repositories
                     })
                     .ToListAsync();
             }
+        public async Task<ProductSalesRaw> GetTopProductAsync(DateTime start, DateTime end, string? category = null)
+        {
+            var q = GetProductFilteredQuery(start, end, category);
+            return await q
+                .OrderByDescending(d => d.Revenue)
+                .FirstOrDefaultAsync() ?? new ProductSalesRaw();
         }
+
+        public async Task<ProductSalesRaw> GetFastestGrowingProductAsync(DateTime start, DateTime end, DateTime prevStart, DateTime prevEnd, string? category = null)
+        {
+            var current = await GetProductSalesListAsync(start, end, category);
+            var prev = await GetProductSalesListAsync(prevStart, prevEnd, category);
+            var joined = current.Select(c => new
+            {
+                c,
+                p = prev.FirstOrDefault(p => p.DrugId == c.DrugId),
+            }).Select(j => new ProductSalesRaw
+            {
+                DrugId = j.c.DrugId,
+                Name = j.c.Name,
+                Category = j.c.Category,
+                Revenue = j.c.Revenue,
+                DateCreated = j.c.DateCreated,
+                Growth = CalculateGrowth(j.c.Revenue, j.p?.Revenue ?? 0)
+            }).OrderByDescending(x => x.Growth).FirstOrDefault() ?? new ProductSalesRaw();
+
+            joined.Revenue = joined.Growth; // Use as growth for KPI
+            return joined;
+        }
+
+        public async Task<ProductSalesRaw> GetSlowestMovingProductAsync(DateTime start, DateTime end, DateTime prevStart, DateTime prevEnd, string? category = null)
+        {
+            var current = await GetProductSalesListAsync(start, end, category);
+            var prev = await GetProductSalesListAsync(prevStart, prevEnd, category);
+            var joined = current.Select(c => new
+            {
+                c,
+                p = prev.FirstOrDefault(p => p.DrugId == c.DrugId),
+            }).Select(j => new ProductSalesRaw
+            {
+                DrugId = j.c.DrugId,
+                Name = j.c.Name,
+                Category = j.c.Category,
+                Revenue = j.c.Revenue,
+                DateCreated = j.c.DateCreated,
+                Growth = CalculateGrowth(j.c.Revenue, j.p?.Revenue ?? 0)
+            }).OrderBy(x => x.Growth).FirstOrDefault() ?? new ProductSalesRaw();
+
+            joined.Revenue = joined.Growth; // Use as growth
+            return joined;
+        }
+
+        public async Task<int> GetNewLaunchesCountAsync(DateTime start, DateTime end, string? category = null)
+        {
+            return await _context.DrugMasters
+                .Where(d => d.DateCreated >= start && d.DateCreated <= end)
+                .Where(d => string.IsNullOrEmpty(category) || d.TheRapeuticclass == category)
+                .CountAsync();
+        }
+
+        public async Task<List<TopSkuDto>> GetTopSkusAsync(DateTime start, DateTime end, int topN, string? category = null)
+        {
+            var q = GetProductFilteredQuery(start, end, category);
+            return await q
+                .OrderByDescending(d => d.Revenue)
+                .Take(topN)
+                .Select(d => new TopSkuDto { Name = d.Name, Revenue = d.Revenue })
+                .ToListAsync();
+        }
+
+        public async Task<List<ProductInsightDto>> GetProductInsightsAsync(DateTime start, DateTime end, DateTime prevStart, DateTime prevEnd, string? category = null, string? status = null)
+        {
+            var current = await GetProductSalesListAsync(start, end, category);
+            var prev = await GetProductSalesListAsync(prevStart, prevEnd, category);
+            var insights = current.Select(c => new
+            {
+                c,
+                p = prev.FirstOrDefault(p => p.DrugId == c.DrugId),
+            }).Select(j => new ProductInsightDto
+            {
+                Name = j.c.Name,
+                Category = j.c.Category,
+                Revenue = j.c.Revenue,
+                Growth = (j.p?.Revenue > 0 ? "+" + ((j.c.Revenue - j.p.Revenue) / j.p.Revenue * 100).ToString("F0") + "%" : "New"),
+                Status = DetermineStatus(j.c.DateCreated, CalculateGrowth(j.c.Revenue, j.p?.Revenue ?? 0))
+            });
+
+            if (!string.IsNullOrEmpty(status))
+            {
+                insights = insights.Where(i => i.Status == status);
+            }
+
+            return insights.ToList();
+        }
+
+        public async Task<List<AiRecommendationDto>> GetAiRecommendationsAsync(DateTime start, DateTime end, string? category = null)
+        {
+            var sales = await GetProductSalesListAsync(start, end, category);
+            var stocks = await GetProductStocksAsync();
+            var recos = sales.Select(s => new
+            {
+                s,
+                stock = stocks.FirstOrDefault(st => st.DrugId == s.DrugId)?.RemainStock ?? 0
+            }).Select(j => new AiRecommendationDto
+            {
+                Product = j.s.Name,
+                Stock = j.stock,
+                Demand = (long)(j.s.Revenue / (j.s.Revenue > 0 ? 100 : 1)), // Simplified avg demand
+                Forecast = (long)(j.s.Revenue / (j.s.Revenue > 0 ? 100 : 1) * 1.2m), // +20%
+                Recommendation = j.stock < (j.s.Revenue / 100) ? "Reorder " + ((j.s.Revenue / 100) - j.stock) + " units" : "Avoid Reorder"
+            }).ToList();
+
+            return recos;
+        }
+
+        private async Task<List<ProductSalesRaw>> GetProductSalesListAsync(DateTime start, DateTime end, string? category)
+        {
+            return await GetProductFilteredQuery(start, end, category).ToListAsync();
+        }
+
+        private IQueryable<ProductSalesRaw> GetProductFilteredQuery(DateTime start, DateTime end, string? category)
+        {
+            return _context.SalesInvoiceDetails
+                .Include(d => d.Drug)
+                .Where(d => d.SalesInvoice!.BillDate >= start && d.SalesInvoice.BillDate <= end)
+                .Where(d => d.IsActive == true && d.IsDeleted != true)
+                .GroupBy(d => d.DrugId)
+                .Select(g => new ProductSalesRaw
+                {
+                    DrugId = g.Key ?? 0,
+                    Name = g.FirstOrDefault()!.Drug!.DrugName ?? "Unknown",
+                    Category = g.FirstOrDefault()!.Drug!.TheRapeuticclass ?? "Unknown",
+                    Revenue = g.Sum(d => d.TotalAmount ?? 0m),
+                    DateCreated = g.FirstOrDefault()!.Drug!.DateCreated
+                })
+                .Where(p => string.IsNullOrEmpty(category) || p.Category == category);
+        }
+
+        private async Task<List<ProductStockRaw>> GetProductStocksAsync()
+        {
+            return await _context.PurchaseDetails
+                .GroupBy(pd => pd.DrugId)
+                .Select(g => new ProductStockRaw
+                {
+                    DrugId = g.Key ?? 0,
+                    RemainStock = g.Sum(pd => pd.RemainStock ?? 0)
+                })
+                .ToListAsync();
+        }
+
+        private string DetermineStatus(DateTime? dateCreated, decimal growth)
+        {
+            if (dateCreated > DateTime.UtcNow.AddMonths(-3)) return "New";
+            if (growth > 10) return "FastMoving";
+            return "SlowMoving";
+        }
+
+        private decimal CalculateGrowth(decimal current, decimal previous)
+        {
+            return previous > 0 ? ((current - previous) / previous) * 100m : 0m;
+        }
+    }
 }

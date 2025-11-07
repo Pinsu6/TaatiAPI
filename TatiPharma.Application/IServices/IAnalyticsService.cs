@@ -10,5 +10,6 @@ namespace TatiPharma.Application.IServices
     public interface IAnalyticsService
     {
         Task<ApiResponse<SalesAnalyticsDto>> GetSalesAnalyticsAsync(SalesAnalyticsFilterRequestDto request);
+        Task<ApiResponse<ProductInsightsDto>> GetProductInsightsAsync(ProductInsightsFilterRequestDto request);
     }
 }
