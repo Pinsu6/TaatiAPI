@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TatiPharma.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f12531ff382d8a35fe98959ce1d17de50729a1bd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3a521e6b4364b728b95f39c30ef2a3114dfe1e90")]
 [assembly: System.Reflection.AssemblyProductAttribute("TatiPharma.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TatiPharma.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

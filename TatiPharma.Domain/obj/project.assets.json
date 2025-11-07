@@ -8,23 +8,23 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\LENOVO\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Prince Bhindi\\.nuget\\packages\\": {},
+    "D:\\Software\\visual studio setup\\vs sdk\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Domain\\TatiPharma.Domain.csproj",
+      "projectUniqueName": "E:\\taati\\Api\\TaatiAPI\\TatiPharma.Domain\\TatiPharma.Domain.csproj",
       "projectName": "TatiPharma.Domain",
-      "projectPath": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Domain\\TatiPharma.Domain.csproj",
-      "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-      "outputPath": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Domain\\obj\\",
+      "projectPath": "E:\\taati\\Api\\TaatiAPI\\TatiPharma.Domain\\TatiPharma.Domain.csproj",
+      "packagesPath": "C:\\Users\\Prince Bhindi\\.nuget\\packages\\",
+      "outputPath": "E:\\taati\\Api\\TaatiAPI\\TatiPharma.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "D:\\Software\\visual studio setup\\vs sdk\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Prince Bhindi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -72,7 +72,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -3117,23 +3117,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\LENOVO\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Prince Bhindi\\.nuget\\packages\\": {},
+    "D:\\Software\\visual studio setup\\vs sdk\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.API\\TatiPharma.API.csproj",
+      "projectUniqueName": "E:\\taati\\Api\\TaatiAPI\\TatiPharma.API\\TatiPharma.API.csproj",
       "projectName": "TatiPharma.API",
-      "projectPath": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.API\\TatiPharma.API.csproj",
-      "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-      "outputPath": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.API\\obj\\",
+      "projectPath": "E:\\taati\\Api\\TaatiAPI\\TatiPharma.API\\TatiPharma.API.csproj",
+      "packagesPath": "C:\\Users\\Prince Bhindi\\.nuget\\packages\\",
+      "outputPath": "E:\\taati\\Api\\TaatiAPI\\TatiPharma.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "D:\\Software\\visual studio setup\\vs sdk\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Prince Bhindi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3148,11 +3148,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Application\\TatiPharma.Application.csproj": {
-              "projectPath": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Application\\TatiPharma.Application.csproj"
+            "E:\\taati\\Api\\TaatiAPI\\TatiPharma.Application\\TatiPharma.Application.csproj": {
+              "projectPath": "E:\\taati\\Api\\TaatiAPI\\TatiPharma.Application\\TatiPharma.Application.csproj"
             },
-            "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Infrastructure\\TatiPharma.Infrastructure.csproj": {
-              "projectPath": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Infrastructure\\TatiPharma.Infrastructure.csproj"
+            "E:\\taati\\Api\\TaatiAPI\\TatiPharma.Infrastructure\\TatiPharma.Infrastructure.csproj": {
+              "projectPath": "E:\\taati\\Api\\TaatiAPI\\TatiPharma.Infrastructure\\TatiPharma.Infrastructure.csproj"
             }
           }
         }
@@ -3209,7 +3209,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

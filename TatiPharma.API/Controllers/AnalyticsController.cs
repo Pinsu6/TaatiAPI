@@ -6,7 +6,7 @@ using TatiPharma.Application.IServices;
 
 namespace TatiPharma.API.Controllers
 {
-    [Authorize]
+   // [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class AnalyticsController : ControllerBase

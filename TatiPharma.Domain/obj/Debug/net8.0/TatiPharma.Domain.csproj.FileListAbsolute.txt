@@ -33,3 +33,15 @@ C:\Mohit\Prince Tati Pharma\API\TatiPharma.Domain\obj\Debug\net8.0\TatiPharma.Do
 C:\Mohit\Prince Tati Pharma\API\TatiPharma.Domain\obj\Debug\net8.0\refint\TatiPharma.Domain.dll
 C:\Mohit\Prince Tati Pharma\API\TatiPharma.Domain\obj\Debug\net8.0\TatiPharma.Domain.pdb
 C:\Mohit\Prince Tati Pharma\API\TatiPharma.Domain\obj\Debug\net8.0\ref\TatiPharma.Domain.dll
+E:\taati\Api\TaatiAPI\TatiPharma.Domain\bin\Debug\net8.0\TatiPharma.Domain.deps.json
+E:\taati\Api\TaatiAPI\TatiPharma.Domain\bin\Debug\net8.0\TatiPharma.Domain.dll
+E:\taati\Api\TaatiAPI\TatiPharma.Domain\bin\Debug\net8.0\TatiPharma.Domain.pdb
+E:\taati\Api\TaatiAPI\TatiPharma.Domain\obj\Debug\net8.0\TatiPharma.Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\taati\Api\TaatiAPI\TatiPharma.Domain\obj\Debug\net8.0\TatiPharma.Domain.AssemblyInfoInputs.cache
+E:\taati\Api\TaatiAPI\TatiPharma.Domain\obj\Debug\net8.0\TatiPharma.Domain.AssemblyInfo.cs
+E:\taati\Api\TaatiAPI\TatiPharma.Domain\obj\Debug\net8.0\TatiPharma.Domain.csproj.CoreCompileInputs.cache
+E:\taati\Api\TaatiAPI\TatiPharma.Domain\obj\Debug\net8.0\TatiPharma.Domain.sourcelink.json
+E:\taati\Api\TaatiAPI\TatiPharma.Domain\obj\Debug\net8.0\TatiPharma.Domain.dll
+E:\taati\Api\TaatiAPI\TatiPharma.Domain\obj\Debug\net8.0\refint\TatiPharma.Domain.dll
+E:\taati\Api\TaatiAPI\TatiPharma.Domain\obj\Debug\net8.0\TatiPharma.Domain.pdb
+E:\taati\Api\TaatiAPI\TatiPharma.Domain\obj\Debug\net8.0\ref\TatiPharma.Domain.dll

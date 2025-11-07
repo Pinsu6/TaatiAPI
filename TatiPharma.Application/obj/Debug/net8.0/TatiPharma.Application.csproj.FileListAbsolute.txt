@@ -46,3 +46,19 @@ C:\Mohit\Prince Tati Pharma\API\TatiPharma.Application\obj\Debug\net8.0\TatiPhar
 C:\Mohit\Prince Tati Pharma\API\TatiPharma.Application\obj\Debug\net8.0\refint\TatiPharma.Application.dll
 C:\Mohit\Prince Tati Pharma\API\TatiPharma.Application\obj\Debug\net8.0\TatiPharma.Application.pdb
 C:\Mohit\Prince Tati Pharma\API\TatiPharma.Application\obj\Debug\net8.0\ref\TatiPharma.Application.dll
+E:\taati\Api\TaatiAPI\TatiPharma.Application\bin\Debug\net8.0\TatiPharma.Application.deps.json
+E:\taati\Api\TaatiAPI\TatiPharma.Application\bin\Debug\net8.0\TatiPharma.Application.dll
+E:\taati\Api\TaatiAPI\TatiPharma.Application\bin\Debug\net8.0\TatiPharma.Application.pdb
+E:\taati\Api\TaatiAPI\TatiPharma.Application\bin\Debug\net8.0\TatiPharma.Domain.dll
+E:\taati\Api\TaatiAPI\TatiPharma.Application\bin\Debug\net8.0\TatiPharma.Domain.pdb
+E:\taati\Api\TaatiAPI\TatiPharma.Application\obj\Debug\net8.0\TatiPharma.Application.csproj.AssemblyReference.cache
+E:\taati\Api\TaatiAPI\TatiPharma.Application\obj\Debug\net8.0\TatiPharma.Application.GeneratedMSBuildEditorConfig.editorconfig
+E:\taati\Api\TaatiAPI\TatiPharma.Application\obj\Debug\net8.0\TatiPharma.Application.AssemblyInfoInputs.cache
+E:\taati\Api\TaatiAPI\TatiPharma.Application\obj\Debug\net8.0\TatiPharma.Application.AssemblyInfo.cs
+E:\taati\Api\TaatiAPI\TatiPharma.Application\obj\Debug\net8.0\TatiPharma.Application.csproj.CoreCompileInputs.cache
+E:\taati\Api\TaatiAPI\TatiPharma.Application\obj\Debug\net8.0\TatiPharma.Application.sourcelink.json
+E:\taati\Api\TaatiAPI\TatiPharma.Application\obj\Debug\net8.0\TatiPhar.C893BAAB.Up2Date
+E:\taati\Api\TaatiAPI\TatiPharma.Application\obj\Debug\net8.0\TatiPharma.Application.dll
+E:\taati\Api\TaatiAPI\TatiPharma.Application\obj\Debug\net8.0\refint\TatiPharma.Application.dll
+E:\taati\Api\TaatiAPI\TatiPharma.Application\obj\Debug\net8.0\TatiPharma.Application.pdb
+E:\taati\Api\TaatiAPI\TatiPharma.Application\obj\Debug\net8.0\ref\TatiPharma.Application.dll
