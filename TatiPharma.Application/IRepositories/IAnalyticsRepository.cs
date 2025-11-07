@@ -28,5 +28,15 @@ namespace TatiPharma.Application.IRepositories
         Task<List<StockByCategoryDto>> GetStockByCategoryAsync(string? category = null);
         Task<List<TurnoverRatioDto>> GetMonthlyTurnoverAsync(int year, string? category = null);
         Task<List<StockAlertDto>> GetStockAlertsAsync(string? category = null);
+        Task<decimal> GetTotalSalesYtdAsync(DateTime ytdStart, DateTime ytdEnd, string? region, string? category);
+        Task<decimal> GetSalesGrowthAsync(DateTime currentStart, DateTime currentEnd, DateTime prevStart, DateTime prevEnd, string? region, string? category);
+        Task<int> GetActivePharmaciesCountAsync(string? region, string? search);
+        Task<int> GetTotalCustomersCountAsync(string? region, string? search);
+        Task<decimal> GetOrderFulfillmentAsync(DateTime start, DateTime end, string? region, string? category);
+        Task<decimal> GetFulfillmentChangeAsync(DateTime currentStart, DateTime currentEnd, DateTime prevStart, DateTime prevEnd, string? region, string? category);
+        Task<List<MonthlyRevenueDto>> GetRevenuePerformanceAsync(int year, string? region, string? category);
+        Task<List<ProductCategoryShareDto>> GetProductCategoriesShareAsync(DateTime start, DateTime end, string? category);
+        Task<List<RegionalRevenueDto>> GetRegionalPerformanceAsync(DateTime start, DateTime end, string? region, string? category);
+        Task<List<TopPharmacyDto>> GetTopPharmaciesAsync(DateTime start, DateTime end, string? region, string? category, string? search, int topN = 10);
     }
 }

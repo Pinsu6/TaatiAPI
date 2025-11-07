@@ -388,5 +388,119 @@ namespace TatiPharma.Infrastructure.Repositories
                 })
                 .Where(s => string.IsNullOrEmpty(category) || s.Category == category);
         }
+
+        public async Task<decimal> GetTotalSalesYtdAsync(DateTime ytdStart, DateTime ytdEnd, string? region, string? category)
+        {
+            var q = GetFilteredQuery(ytdStart, ytdEnd, region, category);
+            return await q.SumAsync(d => d.TotalAmount ?? 0m);
+        }
+
+        public async Task<decimal> GetSalesGrowthAsync(DateTime currentStart, DateTime currentEnd, DateTime prevStart, DateTime prevEnd, string? region, string? category)
+        {
+            var currentSales = await GetTotalSalesAsync(currentStart, currentEnd, region, category);
+            var prevSales = await GetTotalSalesAsync(prevStart, prevEnd, region, category);
+            return CalculateGrowth(currentSales, prevSales);
+        }
+
+        public async Task<int> GetActivePharmaciesCountAsync(string? region, string? search)
+        {
+            var q = _context.Customers.Where(c => c.BitIsActive == true && c.BitIsDelete != true);
+            if (!string.IsNullOrEmpty(region)) q = q.Where(c => c.Region == region);
+            if (!string.IsNullOrEmpty(search)) q = q.Where(c => (c.CusFirstname + " " + c.CusLastname).Contains(search) || c.CusCode.Contains(search));
+            return await q.CountAsync();
+        }
+
+        public async Task<int> GetTotalCustomersCountAsync(string? region, string? search)
+        {
+            var q = _context.Customers.Where(c => c.BitIsDelete != true);
+            if (!string.IsNullOrEmpty(region)) q = q.Where(c => c.Region == region);
+            if (!string.IsNullOrEmpty(search)) q = q.Where(c => (c.CusFirstname + " " + c.CusLastname).Contains(search) || c.CusCode.Contains(search));
+            return await q.CountAsync();
+        }
+
+        public async Task<decimal> GetOrderFulfillmentAsync(DateTime start, DateTime end, string? region, string? category)
+        {
+            var totalOrders = await GetOrderCountAsync(start, end, region, category);
+            var fulfilled = await _context.SalesInvoices
+                .Where(i => i.BillDate >= start && i.BillDate <= end && i.PaymentStatus == "Paid")
+                .CountAsync();
+            return totalOrders > 0 ? (decimal)fulfilled / totalOrders * 100 : 0m;
+        }
+
+        public async Task<decimal> GetFulfillmentChangeAsync(DateTime currentStart, DateTime currentEnd, DateTime prevStart, DateTime prevEnd, string? region, string? category)
+        {
+            var current = await GetOrderFulfillmentAsync(currentStart, currentEnd, region, category);
+            var prev = await GetOrderFulfillmentAsync(prevStart, prevEnd, region, category);
+            return current - prev;
+        }
+
+        public async Task<List<MonthlyRevenueDto>> GetRevenuePerformanceAsync(int year, string? region, string? category)
+        {
+            var raw = await GetMonthlySalesAsync(year, region, category);
+            return raw.Select(r => new MonthlyRevenueDto
+            {
+                Month = r.Month.ToString(), // or use month name if needed
+                Retail = r.Retail,
+                Wholesale = r.Wholesale
+            }).ToList(); // Reuse from sales
+        }
+
+        public async Task<List<ProductCategoryShareDto>> GetProductCategoriesShareAsync(DateTime start, DateTime end, string? category)
+        {
+            var q = GetFilteredQuery(start, end, null, category);
+            var total = await q.SumAsync(d => d.TotalAmount ?? 0m);
+            return await q
+                .GroupBy(d => d.Drug!.TheRapeuticclass ?? "Unknown")
+                .Select(g => new ProductCategoryShareDto
+                {
+                    Category = g.Key,
+                    Share = total > 0 ? g.Sum(d => d.TotalAmount ?? 0m) / total * 100 : 0m
+                })
+                .ToListAsync();
+        }
+
+        public async Task<List<RegionalRevenueDto>> GetRegionalPerformanceAsync(DateTime start, DateTime end, string? region, string? category)
+        {
+            var q = GetFilteredQuery(start, end, region, category);
+            return await q
+                .GroupBy(d => d.SalesInvoice!.Customer!.Region ?? "Unknown")
+                .Select(g => new RegionalRevenueDto
+                {
+                    Region = g.Key,
+                    Revenue = g.Sum(d => d.TotalAmount ?? 0m)
+                })
+                .ToListAsync();
+        }
+
+        public async Task<List<TopPharmacyDto>> GetTopPharmaciesAsync(DateTime start, DateTime end, string? region, string? category, string? search, int topN = 10)
+        {
+            var q = GetFilteredQuery(start, end, region, category);
+            var grouped = q.GroupBy(d => d.SalesInvoice!.CustomerId)
+                .Select(g => new
+                {
+                    CustomerId = g.Key,
+                    Revenue = g.Sum(d => d.TotalAmount ?? 0m)
+                });
+
+            var top = await grouped.OrderByDescending(g => g.Revenue).Take(topN).ToListAsync();
+
+            var pharmacies = await _context.Customers
+                .Where(c => top.Select(t => t.CustomerId).Contains(c.CustomerId))
+                .Where(c => string.IsNullOrEmpty(search) || (c.CusFirstname + " " + c.CusLastname).Contains(search))
+                .Select(c => new TopPharmacyDto
+                {
+                    Name = c.CusFirstname + " " + c.CusLastname ?? "Unknown",
+                    Region = c.Region ?? "Unknown",
+                    Revenue = 0 // To be filled
+                })
+                .ToListAsync();
+
+            foreach (var p in pharmacies)
+            {
+                p.Revenue = top.FirstOrDefault(t => t.CustomerId == _context.Customers.First(c => c.CusFirstname + " " + c.CusLastname == p.Name).CustomerId)?.Revenue ?? 0m;
+            }
+
+            return pharmacies;
+        }
     }
 }

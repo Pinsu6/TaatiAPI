@@ -38,5 +38,12 @@ namespace TatiPharma.API.Controllers
             var response = await _salesAnalyticsService.GetInventoryAnalyticsAsync(request);
             return Ok(response);
         }
+
+        [HttpGet("dashboard")]
+        public async Task<ActionResult<ApiResponse<DashboardAnalyticsDto>>> GetDashboard([FromQuery] DashboardFilterRequestDto request)
+        {
+            var response = await _salesAnalyticsService.GetDashboardAnalyticsAsync(request);
+            return Ok(response);
+        }
     }
 }
