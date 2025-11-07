@@ -21,5 +21,12 @@ namespace TatiPharma.Application.IRepositories
         Task<List<TopSkuDto>> GetTopSkusAsync(DateTime start, DateTime end, int topN, string? category = null);
         Task<List<ProductInsightDto>> GetProductInsightsAsync(DateTime start, DateTime end, DateTime prevStart, DateTime prevEnd, string? category = null, string? status = null);
         Task<List<AiRecommendationDto>> GetAiRecommendationsAsync(DateTime start, DateTime end, string? category = null);
+        Task<decimal> GetTotalStockValueAsync(string? category = null);
+        Task<int> GetStockOutsCountAsync(string? category = null);
+        Task<int> GetOverstockAlertsCountAsync(string? category = null);
+        Task<decimal> GetAvgTurnoverAsync(DateTime start, DateTime end, string? category = null);
+        Task<List<StockByCategoryDto>> GetStockByCategoryAsync(string? category = null);
+        Task<List<TurnoverRatioDto>> GetMonthlyTurnoverAsync(int year, string? category = null);
+        Task<List<StockAlertDto>> GetStockAlertsAsync(string? category = null);
     }
 }

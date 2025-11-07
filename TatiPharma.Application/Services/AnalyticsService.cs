@@ -202,5 +202,46 @@ namespace TatiPharma.Application.Services
         {
             return prev > 0 ? ((current - prev) / prev) * 100 : 0;
         }
+        public async Task<ApiResponse<InventoryAnalyticsDto>> GetInventoryAnalyticsAsync(InventoryFilterRequestDto request)
+        {
+            try
+            {
+                var now = DateTime.UtcNow;
+                var start = request.StartDate ?? new DateTime(now.Year, 1, 1);
+                var end = request.EndDate ?? now;
+
+                // KPIs
+                var kpis = new InventoryKpiDto
+                {
+                    TotalStockValue = await _salesAnalyticsRepository.GetTotalStockValueAsync(request.Category),
+                    StockOuts = await _salesAnalyticsRepository.GetStockOutsCountAsync(request.Category),
+                    OverstockAlerts = await _salesAnalyticsRepository.GetOverstockAlertsCountAsync(request.Category),
+                    AvgTurnover = await _salesAnalyticsRepository.GetAvgTurnoverAsync(start, end, request.Category)
+                };
+
+                // Stock by Category
+                var stockByCategory = await _salesAnalyticsRepository.GetStockByCategoryAsync(request.Category);
+
+                // Turnover Ratio
+                var turnoverRatio = await _salesAnalyticsRepository.GetMonthlyTurnoverAsync(now.Year, request.Category);
+
+                // Stock Alerts
+                var stockAlerts = await _salesAnalyticsRepository.GetStockAlertsAsync(request.Category);
+
+                var result = new InventoryAnalyticsDto
+                {
+                    Kpis = kpis,
+                    StockByCategory = stockByCategory,
+                    TurnoverRatio = turnoverRatio,
+                    StockAlerts = stockAlerts
+                };
+
+                return ApiResponse<InventoryAnalyticsDto>.SuccessResult(result, "Inventory analytics retrieved successfully");
+            }
+            catch (Exception ex)
+            {
+                return ApiResponse<InventoryAnalyticsDto>.ErrorResult(new List<string> { ex.Message });
+            }
+        }
     }
 }

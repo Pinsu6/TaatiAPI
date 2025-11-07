@@ -6,7 +6,7 @@ using TatiPharma.Application.IServices;
 
 namespace TatiPharma.API.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class AnalyticsController : ControllerBase
@@ -29,6 +29,13 @@ namespace TatiPharma.API.Controllers
         public async Task<ActionResult<ApiResponse<ProductInsightsDto>>> GetProductInsights([FromQuery] ProductInsightsFilterRequestDto request)
         {
             var response = await _salesAnalyticsService.GetProductInsightsAsync(request);
+            return Ok(response);
+        }
+
+        [HttpGet("inventory")]
+        public async Task<ActionResult<ApiResponse<InventoryAnalyticsDto>>> GetInventory([FromQuery] InventoryFilterRequestDto request)
+        {
+            var response = await _salesAnalyticsService.GetInventoryAnalyticsAsync(request);
             return Ok(response);
         }
     }

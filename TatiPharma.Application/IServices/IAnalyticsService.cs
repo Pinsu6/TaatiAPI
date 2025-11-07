@@ -11,5 +11,6 @@ namespace TatiPharma.Application.IServices
     {
         Task<ApiResponse<SalesAnalyticsDto>> GetSalesAnalyticsAsync(SalesAnalyticsFilterRequestDto request);
         Task<ApiResponse<ProductInsightsDto>> GetProductInsightsAsync(ProductInsightsFilterRequestDto request);
+        Task<ApiResponse<InventoryAnalyticsDto>> GetInventoryAnalyticsAsync(InventoryFilterRequestDto request);
     }
 }
