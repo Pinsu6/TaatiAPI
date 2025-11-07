@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TatiPharma.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7f04dba6a5e84aa9746e2fb1a662cd6000d2a31b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eb596ebc461e9ba509327b879d60e49f988a9438")]
 [assembly: System.Reflection.AssemblyProductAttribute("TatiPharma.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TatiPharma.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

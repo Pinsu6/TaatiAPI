@@ -194,21 +194,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ExportService.cs",
-              "DocumentMoniker": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Application\\Services\\ExportService.cs",
-              "RelativeDocumentMoniker": "TatiPharma.Application\\Services\\ExportService.cs",
-              "ToolTip": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Application\\Services\\ExportService.cs",
-              "RelativeToolTip": "TatiPharma.Application\\Services\\ExportService.cs",
-              "ViewState": "AgIAAE0AAAAAAAAAAAAUwGIAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T11:04:13.222Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 3,
@@ -219,8 +206,7 @@
               "RelativeToolTip": "TatiPharma.API\\Controllers\\CustomerController.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAAAnwAkAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T11:00:36.995Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T11:00:36.995Z"
             },
             {
               "$type": "Document",
@@ -232,8 +218,7 @@
               "RelativeToolTip": "TatiPharma.API\\Program.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAABoAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T05:59:57.189Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T05:59:57.189Z"
             },
             {
               "$type": "Document",
@@ -245,8 +230,7 @@
               "RelativeToolTip": "TatiPharma.API\\Controllers\\AnalyticsController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T05:35:33.754Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T05:35:33.754Z"
             },
             {
               "$type": "Document",
@@ -258,8 +242,7 @@
               "RelativeToolTip": "TatiPharma.Application\\IServices\\IExportService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T11:17:44.907Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T11:17:44.907Z"
             },
             {
               "$type": "Document",
@@ -276,6 +259,18 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ExportService.cs",
+              "DocumentMoniker": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Application\\Services\\ExportService.cs",
+              "RelativeDocumentMoniker": "TatiPharma.Application\\Services\\ExportService.cs",
+              "ToolTip": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Application\\Services\\ExportService.cs",
+              "RelativeToolTip": "TatiPharma.Application\\Services\\ExportService.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAUwGIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-07T11:04:13.222Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 6,
               "Title": "ICustomerService.cs",
               "DocumentMoniker": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Application\\IServices\\ICustomerService.cs",
@@ -284,8 +279,7 @@
               "RelativeToolTip": "TatiPharma.Application\\IServices\\ICustomerService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T11:01:09.291Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T11:01:09.291Z"
             },
             {
               "$type": "Document",
@@ -297,8 +291,7 @@
               "RelativeToolTip": "TatiPharma.Infrastructure\\Repositories\\CustomerRepository.cs",
               "ViewState": "AgIAAC4AAAAAAAAAAAAiwEgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T11:01:26.054Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T11:01:26.054Z"
             },
             {
               "$type": "Document",
@@ -310,8 +303,7 @@
               "RelativeToolTip": "TatiPharma.Application\\IRepositories\\ICustomerRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T09:50:38.443Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T09:50:38.443Z"
             },
             {
               "$type": "Document",
@@ -323,8 +315,7 @@
               "RelativeToolTip": "TatiPharma.Application\\IRepositories\\IAnalyticsRepository.cs",
               "ViewState": "AgIAABQAAAAAAAAAAAAcwCcAAACYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T05:39:20.444Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T05:39:20.444Z"
             },
             {
               "$type": "Document",
@@ -336,8 +327,7 @@
               "RelativeToolTip": "TatiPharma.Application\\IServices\\IAnalyticsService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T05:40:28.26Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T05:40:28.26Z"
             },
             {
               "$type": "Document",
@@ -349,8 +339,7 @@
               "RelativeToolTip": "TatiPharma.Application\\Services\\AnalyticsService.cs",
               "ViewState": "AgIAAAoBAAAAAAAAAAAqwCUBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T05:40:51.766Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T05:40:51.766Z"
             },
             {
               "$type": "Document",
@@ -362,8 +351,7 @@
               "RelativeToolTip": "TatiPharma.Infrastructure\\Repositories\\AnalyticsRepository.cs",
               "ViewState": "AgIAADoBAAAAAAAAAADwv0MBAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T05:42:08.445Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T05:42:08.445Z"
             },
             {
               "$type": "Document",
@@ -375,8 +363,7 @@
               "RelativeToolTip": "TatiPharma.Application\\DTOs\\TopPharmacyDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T09:50:07.56Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T09:50:07.56Z"
             },
             {
               "$type": "Document",
@@ -388,8 +375,7 @@
               "RelativeToolTip": "TatiPharma.Application\\DTOs\\RegionalRevenueDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T09:49:40.976Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T09:49:40.976Z"
             },
             {
               "$type": "Document",
@@ -401,8 +387,7 @@
               "RelativeToolTip": "TatiPharma.Application\\DTOs\\ProductCategoryShareDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T09:49:18.698Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T09:49:18.698Z"
             },
             {
               "$type": "Document",
@@ -414,8 +399,7 @@
               "RelativeToolTip": "TatiPharma.Application\\DTOs\\MonthlyRevenueDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T09:48:55.29Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T09:48:55.29Z"
             },
             {
               "$type": "Document",
@@ -427,8 +411,7 @@
               "RelativeToolTip": "TatiPharma.Application\\DTOs\\DashboardKpiDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T09:48:30.008Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T09:48:30.008Z"
             },
             {
               "$type": "Document",
@@ -440,8 +423,7 @@
               "RelativeToolTip": "TatiPharma.Application\\DTOs\\DashboardAnalyticsDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T09:48:05.161Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T09:48:05.161Z"
             },
             {
               "$type": "Document",
@@ -453,8 +435,7 @@
               "RelativeToolTip": "TatiPharma.Application\\DTOs\\DashboardFilterRequestDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T09:47:22.204Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T09:47:22.204Z"
             },
             {
               "$type": "Document",
@@ -466,8 +447,7 @@
               "RelativeToolTip": "TatiPharma.Infrastructure\\Data\\AppDbContext.cs",
               "ViewState": "AgIAACgAAAAAAAAAAAA8wDYAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T05:59:50.564Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T05:59:50.564Z"
             },
             {
               "$type": "Document",
@@ -479,8 +459,7 @@
               "RelativeToolTip": "TatiPharma.Application\\DTOs\\InventoryStockRaw.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T07:40:36.053Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T07:40:36.053Z"
             },
             {
               "$type": "Document",
@@ -492,8 +471,7 @@
               "RelativeToolTip": "TatiPharma.Application\\DTOs\\StockAlertDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T07:39:59.445Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T07:39:59.445Z"
             },
             {
               "$type": "Document",
@@ -505,8 +483,7 @@
               "RelativeToolTip": "TatiPharma.Application\\DTOs\\TurnoverRatioDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T07:39:09.94Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T07:39:09.94Z"
             },
             {
               "$type": "Document",
@@ -518,8 +495,7 @@
               "RelativeToolTip": "TatiPharma.Application\\DTOs\\StockByCategoryDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T07:38:40.972Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T07:38:40.972Z"
             },
             {
               "$type": "Document",
@@ -531,8 +507,7 @@
               "RelativeToolTip": "TatiPharma.Application\\DTOs\\InventoryKpiDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T07:38:19.051Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T07:38:19.051Z"
             },
             {
               "$type": "Document",
@@ -544,8 +519,7 @@
               "RelativeToolTip": "TatiPharma.Application\\DTOs\\InventoryAnalyticsDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T07:37:55.597Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T07:37:55.597Z"
             },
             {
               "$type": "Document",
@@ -557,8 +531,7 @@
               "RelativeToolTip": "TatiPharma.Application\\DTOs\\InventoryFilterRequestDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T07:37:05.755Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T07:37:05.755Z"
             },
             {
               "$type": "Document",
@@ -570,8 +543,7 @@
               "RelativeToolTip": "TatiPharma.Application\\DTOs\\ProductSalesRaw.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAAA8AAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T06:35:49.073Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T06:35:49.073Z"
             },
             {
               "$type": "Document",
@@ -583,8 +555,7 @@
               "RelativeToolTip": "TatiPharma.Application\\DTOs\\ProductStockRaw.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T06:36:11.221Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T06:36:11.221Z"
             },
             {
               "$type": "Document",
@@ -596,8 +567,7 @@
               "RelativeToolTip": "TatiPharma.Application\\DTOs\\AiRecommendationDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T06:35:29.541Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T06:35:29.541Z"
             },
             {
               "$type": "Document",
@@ -609,8 +579,7 @@
               "RelativeToolTip": "TatiPharma.Application\\DTOs\\ProductInsightDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T06:34:57.498Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T06:34:57.498Z"
             },
             {
               "$type": "Document",
@@ -622,8 +591,7 @@
               "RelativeToolTip": "TatiPharma.Application\\DTOs\\ProductLifecycleDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T06:34:32.749Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T06:34:32.749Z"
             },
             {
               "$type": "Document",
@@ -635,8 +603,7 @@
               "RelativeToolTip": "TatiPharma.Application\\DTOs\\TopSkuDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T06:34:09.903Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T06:34:09.903Z"
             },
             {
               "$type": "Document",
@@ -648,8 +615,7 @@
               "RelativeToolTip": "TatiPharma.Application\\DTOs\\ProductKpiDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T06:33:47.67Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T06:33:47.67Z"
             },
             {
               "$type": "Document",
@@ -661,8 +627,7 @@
               "RelativeToolTip": "TatiPharma.Application\\DTOs\\ProductInsightsDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABrAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T06:33:20.115Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T06:33:20.115Z"
             },
             {
               "$type": "Document",
@@ -674,8 +639,7 @@
               "RelativeToolTip": "TatiPharma.Application\\DTOs\\ProductInsightsFilterRequestDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T06:32:58.984Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T06:32:58.984Z"
             },
             {
               "$type": "Document",
@@ -687,8 +651,7 @@
               "RelativeToolTip": "TatiPharma.Infrastructure\\Repositories\\ProductRepository.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T06:03:36.373Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T06:03:36.373Z"
             },
             {
               "$type": "Document",
@@ -700,8 +663,7 @@
               "RelativeToolTip": "TatiPharma.Application\\DTOs\\RegionSalesRaw.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T05:38:52.985Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T05:38:52.985Z"
             },
             {
               "$type": "Document",
@@ -713,8 +675,7 @@
               "RelativeToolTip": "TatiPharma.Application\\DTOs\\MonthlySalesRaw.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T05:38:34.882Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T05:38:34.882Z"
             },
             {
               "$type": "Document",
@@ -726,8 +687,7 @@
               "RelativeToolTip": "TatiPharma.Application\\DTOs\\RegionSalesDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T05:38:13.943Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T05:38:13.943Z"
             },
             {
               "$type": "Document",
@@ -739,8 +699,7 @@
               "RelativeToolTip": "TatiPharma.Application\\DTOs\\TopProductDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T05:37:50.999Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T05:37:50.999Z"
             },
             {
               "$type": "Document",
@@ -752,8 +711,7 @@
               "RelativeToolTip": "TatiPharma.Application\\DTOs\\MonthlySalesTrendDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T05:37:26.903Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T05:37:26.903Z"
             },
             {
               "$type": "Document",
@@ -765,8 +723,7 @@
               "RelativeToolTip": "TatiPharma.Application\\DTOs\\KpiDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T05:37:04.243Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T05:37:04.243Z"
             },
             {
               "$type": "Document",
@@ -778,8 +735,7 @@
               "RelativeToolTip": "TatiPharma.Application\\DTOs\\SalesAnalyticsDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T05:36:38.892Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T05:36:38.892Z"
             },
             {
               "$type": "Document",
@@ -791,8 +747,7 @@
               "RelativeToolTip": "TatiPharma.Application\\DTOs\\SalesAnalyticsFilterRequestDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T05:36:08.912Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T05:36:08.912Z"
             }
           ]
         }
