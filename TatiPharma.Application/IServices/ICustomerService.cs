@@ -11,5 +11,6 @@ namespace TatiPharma.Application.IServices
     {
         Task<ApiResponse<PagedResult<CustomerResponseDto>>> GetCustomersAsync(CustomerFilterRequestDto request);
         Task<ApiResponse<CustomerDetailDto>> GetCustomerByIdAsync(long id);
+        Task<PagedResult<CustomerResponseDto>> GetExportDataAsync(CustomerFilterRequestDto filter); // NEW: For exports (all data, not paged)
     }
 }

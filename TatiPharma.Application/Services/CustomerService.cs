@@ -46,5 +46,23 @@ namespace TatiPharma.Application.Services
             var dto = _mapper.Map<CustomerDetailDto>(customer);
             return ApiResponse<CustomerDetailDto>.SuccessResult(dto, "Customer retrieved successfully");
         }
+
+        public async Task<PagedResult<CustomerResponseDto>> GetExportDataAsync(CustomerFilterRequestDto filter)
+        {
+            // KEEP THIS for full export (all records matching filters)
+            filter.PageSize = int.MaxValue;
+            filter.PageNumber = 1;
+
+            var pagedResult = await _customerRepository.GetPagedAsync(filter);
+            var customerDtos = _mapper.Map<List<CustomerResponseDto>>(pagedResult.Data);
+            var result = new PagedResult<CustomerResponseDto>
+            {
+                Data = customerDtos,
+                TotalCount = pagedResult.TotalCount,
+                PageNumber = pagedResult.PageNumber,
+                PageSize = pagedResult.PageSize
+            };
+            return result;
+        }
     }
 }

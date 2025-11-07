@@ -24,7 +24,7 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 // Register Service
 builder.Services.AddScoped<IUserService, UserService>();
-
+builder.Services.AddScoped<IExportService, ExportService>();
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();  // Add
 builder.Services.AddScoped<ICustomerService, CustomerService>();  // Add
 builder.Services.AddScoped<IAnalyticsService, AnalyticsService>();
