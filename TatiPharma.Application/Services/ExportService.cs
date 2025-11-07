@@ -1,13 +1,14 @@
 ﻿using ClosedXML.Excel;
 using CsvHelper;
+using QuestPDF.Fluent;
+using QuestPDF.Helpers;
+using QuestPDF.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Formats.Asn1;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
-using QuestPDF.Fluent;
-using QuestPDF.Infrastructure;
 using System.Text;
 using System.Threading.Tasks;
 using TatiPharma.Application.IServices;
@@ -18,28 +19,46 @@ namespace TatiPharma.Application.Services
     {
         public byte[] GeneratePdf<T>(IEnumerable<T> data, string title = "Export Report")
         {
-            // ADD THIS LINE (Fixes the license error)
+            // ADD THIS LINE (License)
             QuestPDF.Settings.License = LicenseType.Community;
 
             var document = Document.Create(container =>
             {
                 container.Page(page =>
                 {
-                    page.Margin(1, Unit.Inch);
-                    page.Header().Text(title).FontSize(20).Bold().AlignCenter();
-                    page.Content().PaddingVertical(1, Unit.Centimetre).Table(table =>
+                    // FIX #1: Switch to Landscape for more width (wider page)
+                    page.Size(PageSizes.A4.Landscape());
+
+                    // FIX #2: Smaller margins
+                    page.Margin(0.5f, Unit.Inch);
+
+                    page.Header().Text(title).FontSize(16).Bold().AlignCenter(); // Smaller header
+
+                    page.Content().PaddingVertical(0.5f, Unit.Centimetre).Table(table =>
                     {
                         var properties = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
+
+                        // FIX #3: Auto columns, but allow flexible widths
                         table.ColumnsDefinition(columns =>
                         {
-                            foreach (var _ in properties) columns.RelativeColumn();
+                            foreach (var property in properties)
+                            {
+                                columns.RelativeColumn(); // Equal share, but will wrap
+                            }
                         });
 
                         // Header
                         table.Header(header =>
                         {
                             foreach (var property in properties)
-                                header.Cell().Padding(5).Border(1).Text(property.Name).Bold().FontSize(12);
+                            {
+                                header.Cell()
+                                    .Padding(3)
+                                    .Border(0.5f)
+                                    .Text(property.Name)
+                                    .Bold()
+                                    .FontSize(8); // Smaller font
+                            }
                         });
 
                         // Data Rows
@@ -48,7 +67,12 @@ namespace TatiPharma.Application.Services
                             foreach (var property in properties)
                             {
                                 var value = property.GetValue(item)?.ToString() ?? string.Empty;
-                                table.Cell().Padding(5).Border(1).Text(value).FontSize(10);
+                                table.Cell()
+                                    .Padding(3)
+                                    .Border(0.5f)
+                                    .Text(value)
+                                    .FontSize(6)  // Even smaller for data
+                                    .LineHeight(0.8f); // Tighter lines
                             }
                         }
                     });

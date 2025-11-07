@@ -12,5 +12,6 @@ namespace TatiPharma.Application.IServices
         Task<ApiResponse<PagedResult<ProductResponseDto>>> GetProductsAsync(ProductFilterRequestDto request);
         
         Task<ApiResponse<ProductDetailDto>> GetProductByIdAsync(long id);
+        Task<PagedResult<ProductResponseDto>> GetExportDataAsync(ProductFilterRequestDto filter);
     }
 }

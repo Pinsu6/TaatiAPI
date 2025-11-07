@@ -78,5 +78,23 @@ namespace TatiPharma.Application.Services
 
             return ApiResponse<ProductDetailDto>.SuccessResult(dto, "Product retrieved successfully");
         }
+
+        public async Task<PagedResult<ProductResponseDto>> GetExportDataAsync(ProductFilterRequestDto filter)
+        {
+            // Fetch ALL matching records (ignore pagination)
+            filter.PageSize = int.MaxValue;
+            filter.PageNumber = 1;
+
+            var pagedResult = await _productRepository.GetPagedAsync(filter);
+            var dtos = _mapper.Map<List<ProductResponseDto>>(pagedResult.Data);
+
+            return new PagedResult<ProductResponseDto>
+            {
+                Data = dtos,
+                TotalCount = pagedResult.TotalCount,
+                PageNumber = pagedResult.PageNumber,
+                PageSize = pagedResult.PageSize
+            };
+        }
     }
 }
