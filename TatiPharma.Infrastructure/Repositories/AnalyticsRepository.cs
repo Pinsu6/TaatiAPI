@@ -298,5 +298,95 @@ namespace TatiPharma.Infrastructure.Repositories
         {
             return previous > 0 ? ((current - previous) / previous) * 100m : 0m;
         }
+
+        public async Task<decimal> GetTotalStockValueAsync(string? category = null)
+        {
+            var q = GetInventoryQuery(category);
+            return await q.SumAsync(s => s.RemainStock * s.UnitCost);
+        }
+
+        public async Task<int> GetStockOutsCountAsync(string? category = null)
+        {
+            var q = GetInventoryQuery(category);
+            return await q.CountAsync(s => s.RemainStock == 0);
+        }
+
+        public async Task<int> GetOverstockAlertsCountAsync(string? category = null)
+        {
+            var q = GetInventoryQuery(category);
+            return await q.CountAsync(s => s.RemainStock > (s.MaxLevel ?? 0));
+        }
+
+        public async Task<decimal> GetAvgTurnoverAsync(DateTime start, DateTime end, string? category = null)
+        {
+            var sales = await GetTotalSalesAsync(start, end, null, category);
+            var avgStockValue = await GetTotalStockValueAsync(category) / 2; // Simplified avg
+            return avgStockValue > 0 ? sales / avgStockValue : 0m;
+        }
+
+        public async Task<List<StockByCategoryDto>> GetStockByCategoryAsync(string? category = null)
+        {
+            var q = GetInventoryQuery(category);
+            return await q
+                .GroupBy(s => s.Category)
+                .Select(g => new StockByCategoryDto
+                {
+                    Category = g.Key ?? "Unknown",
+                    StockUnits = g.Sum(s => s.RemainStock)
+                })
+                .ToListAsync();
+        }
+
+        public async Task<List<TurnoverRatioDto>> GetMonthlyTurnoverAsync(int year, string? category = null)
+        {
+            var months = new string[] { "", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+            var result = new List<TurnoverRatioDto>();
+            for (int m = 1; m <= 12; m++)
+            {
+                var monthStart = new DateTime(year, m, 1);
+                var monthEnd = monthStart.AddMonths(1).AddDays(-1);
+                var sales = await GetTotalSalesAsync(monthStart, monthEnd, null, category);
+                var avgStock = await GetTotalStockValueAsync(category) / 2; // Simplified
+                var ratio = avgStock > 0 ? sales / avgStock : 0m;
+                result.Add(new TurnoverRatioDto { Month = months[m], Ratio = ratio });
+            }
+            return result;
+        }
+
+        public async Task<List<StockAlertDto>> GetStockAlertsAsync(string? category = null)
+        {
+            var q = GetInventoryQuery(category);
+            return await q
+                .Where(s => s.RemainStock == 0 || s.RemainStock > (s.MaxLevel ?? 0) || s.RemainStock < (s.MinLevel ?? 0))
+                .Select(s => new StockAlertDto
+                {
+                    Product = s.Name,
+                    Category = s.Category,
+                    CurrentStock = s.RemainStock,
+                    Status = s.RemainStock == 0 ? "Stock-Out" :
+                             s.RemainStock > (s.MaxLevel ?? 0) ? "Overstock" :
+                             "LowStock"
+                })
+                .ToListAsync();
+        }
+
+        private IQueryable<InventoryStockRaw> GetInventoryQuery(string? category)
+        {
+            return _context.PurchaseDetails
+                .Include(pd => pd.Drug)
+                .Where(pd => pd.IsActive == true)
+                .GroupBy(pd => pd.DrugId)
+                .Select(g => new InventoryStockRaw
+                {
+                    DrugId = g.Key ?? 0,
+                    Name = g.FirstOrDefault()!.Drug!.DrugName ?? "Unknown",
+                    Category = g.FirstOrDefault()!.Drug!.TheRapeuticclass ?? "Unknown",
+                    RemainStock = g.Sum(pd => pd.RemainStock ?? 0),
+                    MinLevel = g.FirstOrDefault()!.Drug!.MinLevel,
+                    MaxLevel = g.FirstOrDefault()!.Drug!.MaxLevel,
+                    UnitCost = g.FirstOrDefault()!.Drug!.UnitCost ?? 0m
+                })
+                .Where(s => string.IsNullOrEmpty(category) || s.Category == category);
+        }
     }
 }
