@@ -1,13 +1,14 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using TatiPharma.Application.IRepositories;
 using TatiPharma.Application.IServices;
 using TatiPharma.Application.Mapping;
 using TatiPharma.Application.Services;
 using TatiPharma.Infrastructure.Data;
-using TatiPharma.Application.IRepositories;
 using TatiPharma.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,13 +30,16 @@ builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();  // Add
 builder.Services.AddScoped<ICustomerService, CustomerService>();  // Add
 builder.Services.AddScoped<IAnalyticsService, AnalyticsService>();
 builder.Services.AddScoped<IAnalyticsRepository, AnalyticsRepository>();
+builder.Services.AddScoped<IHelperService, HelperService>();
+builder.Services.AddScoped<IHelperRepository, HelperRepository>();
 
 // AutoMapper
 //builder.Services.AddAutoMapper(typeof(UserMappingProfile));
 builder.Services.AddAutoMapper(
     typeof(UserMappingProfile), 
     typeof(CustomerMappingProfile), 
-    typeof(ProductMappingProfile)
+    typeof(ProductMappingProfile),
+    typeof(HelperMappingProfile)
 );
 
 // Add after AddAutoMapper
