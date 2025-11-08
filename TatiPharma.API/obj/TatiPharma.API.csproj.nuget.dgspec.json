@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.API\\TatiPharma.API.csproj": {}
+    "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.API\\TatiPharma.API.csproj": {}
   },
   "projects": {
-    "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.API\\TatiPharma.API.csproj": {
+    "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.API\\TatiPharma.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.API\\TatiPharma.API.csproj",
+        "projectUniqueName": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.API\\TatiPharma.API.csproj",
         "projectName": "TatiPharma.API",
-        "projectPath": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.API\\TatiPharma.API.csproj",
+        "projectPath": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.API\\TatiPharma.API.csproj",
         "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.API\\obj\\",
+        "outputPath": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,11 +32,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Application\\TatiPharma.Application.csproj": {
-                "projectPath": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Application\\TatiPharma.Application.csproj"
+              "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\TatiPharma.Application.csproj": {
+                "projectPath": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\TatiPharma.Application.csproj"
               },
-              "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Infrastructure\\TatiPharma.Infrastructure.csproj": {
-                "projectPath": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Infrastructure\\TatiPharma.Infrastructure.csproj"
+              "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Infrastructure\\TatiPharma.Infrastructure.csproj": {
+                "projectPath": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Infrastructure\\TatiPharma.Infrastructure.csproj"
               }
             }
           }
@@ -97,14 +97,14 @@
         }
       }
     },
-    "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Application\\TatiPharma.Application.csproj": {
+    "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\TatiPharma.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Application\\TatiPharma.Application.csproj",
+        "projectUniqueName": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\TatiPharma.Application.csproj",
         "projectName": "TatiPharma.Application",
-        "projectPath": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Application\\TatiPharma.Application.csproj",
+        "projectPath": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\TatiPharma.Application.csproj",
         "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Application\\obj\\",
+        "outputPath": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -125,8 +125,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Domain\\TatiPharma.Domain.csproj": {
-                "projectPath": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Domain\\TatiPharma.Domain.csproj"
+              "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Domain\\TatiPharma.Domain.csproj": {
+                "projectPath": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Domain\\TatiPharma.Domain.csproj"
               }
             }
           }
@@ -200,14 +200,14 @@
         }
       }
     },
-    "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Domain\\TatiPharma.Domain.csproj": {
+    "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Domain\\TatiPharma.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Domain\\TatiPharma.Domain.csproj",
+        "projectUniqueName": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Domain\\TatiPharma.Domain.csproj",
         "projectName": "TatiPharma.Domain",
-        "projectPath": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Domain\\TatiPharma.Domain.csproj",
+        "projectPath": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Domain\\TatiPharma.Domain.csproj",
         "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Domain\\obj\\",
+        "outputPath": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -265,14 +265,14 @@
         }
       }
     },
-    "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Infrastructure\\TatiPharma.Infrastructure.csproj": {
+    "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Infrastructure\\TatiPharma.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Infrastructure\\TatiPharma.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Infrastructure\\TatiPharma.Infrastructure.csproj",
         "projectName": "TatiPharma.Infrastructure",
-        "projectPath": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Infrastructure\\TatiPharma.Infrastructure.csproj",
+        "projectPath": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Infrastructure\\TatiPharma.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Infrastructure\\obj\\",
+        "outputPath": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -293,11 +293,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Application\\TatiPharma.Application.csproj": {
-                "projectPath": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Application\\TatiPharma.Application.csproj"
+              "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\TatiPharma.Application.csproj": {
+                "projectPath": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\TatiPharma.Application.csproj"
               },
-              "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Domain\\TatiPharma.Domain.csproj": {
-                "projectPath": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Domain\\TatiPharma.Domain.csproj"
+              "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Domain\\TatiPharma.Domain.csproj": {
+                "projectPath": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Domain\\TatiPharma.Domain.csproj"
               }
             }
           }

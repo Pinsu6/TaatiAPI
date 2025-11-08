@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Domain\\TatiPharma.Domain.csproj",
+      "projectUniqueName": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Domain\\TatiPharma.Domain.csproj",
       "projectName": "TatiPharma.Domain",
-      "projectPath": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Domain\\TatiPharma.Domain.csproj",
+      "projectPath": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Domain\\TatiPharma.Domain.csproj",
       "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-      "outputPath": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.Domain\\obj\\",
+      "outputPath": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

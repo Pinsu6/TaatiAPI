@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QA92NNHY21k=",
+  "dgSpecHash": "/eqnC6D/S7E=",
   "success": true,
-  "projectFilePath": "C:\\Mohit\\Prince Tati Pharma\\API\\TatiPharma.API\\TatiPharma.API.csproj",
+  "projectFilePath": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.API\\TatiPharma.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LENOVO\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
