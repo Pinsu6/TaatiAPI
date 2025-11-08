@@ -10,5 +10,7 @@ namespace TatiPharma.Application.IServices
     public interface IHelperService
     {
         Task<ApiResponse<List<DrugTypeDropdownDto>>> GetDrugTypesForDropdownAsync();
+        Task<ApiResponse<List<CityDropdownDto>>> GetCitiesForDropdownAsync();
+        Task<ApiResponse<List<ProductDropdownDto>>> GetProductsForDropdownAsync();
     }
 }

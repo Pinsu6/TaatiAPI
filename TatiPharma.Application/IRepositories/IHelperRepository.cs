@@ -10,5 +10,7 @@ namespace TatiPharma.Application.IRepositories
     public interface IHelperRepository
     {
         Task<List<DrugTypeMaster>> GetActiveDrugTypesAsync();
+        Task<List<string?>> GetDistinctActiveCitiesAsync();
+        Task<List<DrugMaster>> GetActiveProductsAsync();
     }
 }

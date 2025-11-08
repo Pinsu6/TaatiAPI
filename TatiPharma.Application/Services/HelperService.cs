@@ -29,5 +29,27 @@ namespace TatiPharma.Application.Services
             return ApiResponse<List<DrugTypeDropdownDto>>.SuccessResult(
                 dtos, "Drug types retrieved successfully");
         }
+
+        public async Task<ApiResponse<List<CityDropdownDto>>> GetCitiesForDropdownAsync()
+        {
+            var cities = await _helperRepository.GetDistinctActiveCitiesAsync();
+            var dtos = cities.Select(c => new CityDropdownDto { cityName = c ?? string.Empty })
+                             .Where(dto => !string.IsNullOrWhiteSpace(dto.cityName))
+                             .DistinctBy(dto => dto.cityName.ToLower())
+                             .OrderBy(dto => dto.cityName)
+                             .ToList();
+
+            return ApiResponse<List<CityDropdownDto>>.SuccessResult(
+                dtos, "Cities retrieved successfully");
+        }
+
+        public async Task<ApiResponse<List<ProductDropdownDto>>> GetProductsForDropdownAsync()
+        {
+            var products = await _helperRepository.GetActiveProductsAsync();
+            var dtos = _mapper.Map<List<ProductDropdownDto>>(products);
+
+            return ApiResponse<List<ProductDropdownDto>>.SuccessResult(
+                dtos, "Products retrieved successfully");
+        }
     }
 }

@@ -24,5 +24,19 @@ namespace TatiPharma.API.Controllers
             var response = await _helperService.GetDrugTypesForDropdownAsync();
             return Ok(response);
         }
+
+        [HttpGet("cities")]
+        public async Task<ActionResult<ApiResponse<List<CityDropdownDto>>>> GetCities()
+        {
+            var response = await _helperService.GetCitiesForDropdownAsync();
+            return Ok(response);
+        }
+
+        [HttpGet("products")]
+        public async Task<ActionResult<ApiResponse<List<ProductDropdownDto>>>> GetProducts()
+        {
+            var response = await _helperService.GetProductsForDropdownAsync();
+            return Ok(response);
+        }
     }
 }
