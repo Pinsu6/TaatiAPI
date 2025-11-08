@@ -166,7 +166,7 @@ namespace TatiPharma.Application.Services
                 // Top SKUs
                 var topSkus = await _salesAnalyticsRepository.GetTopSkusAsync(start, end, 10, request.Category);
 
-                // Lifecycle (general, dummy based on aggregates)
+                // Lifecycle (general, dummy based on aggregates) 
                 var lifecycle = new List<ProductLifecycleDto>
         {
             new() { Stage = "Launch", Sales = 200000 },
