@@ -8,7 +8,7 @@ namespace TatiPharma.Application.DTOs
 {
     public class ProductStockRaw
     {
-        public long DrugId { get; set; }
+        public long? DrugId { get; set; }
         public long RemainStock { get; set; }
     }
 }

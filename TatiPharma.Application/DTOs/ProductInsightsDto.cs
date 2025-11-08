@@ -10,7 +10,7 @@ namespace TatiPharma.Application.DTOs
     {
         public ProductKpiDto Kpis { get; set; } = new ProductKpiDto();
         public List<TopSkuDto> TopSkus { get; set; } = new List<TopSkuDto>();
-        public List<ProductLifecycleDto> LifecycleStages { get; set; } = new List<ProductLifecycleDto>();
+        //public List<ProductLifecycleDto> LifecycleStages { get; set; } = new List<ProductLifecycleDto>();
         public List<ProductInsightDto> Products { get; set; } = new List<ProductInsightDto>();
         public List<AiRecommendationDto> AiRecommendations { get; set; } = new List<AiRecommendationDto>();
     }

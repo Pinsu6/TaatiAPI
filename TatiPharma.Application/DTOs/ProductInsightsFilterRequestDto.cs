@@ -8,8 +8,7 @@ namespace TatiPharma.Application.DTOs
 {
     public class ProductInsightsFilterRequestDto
     {
-        public string? Category { get; set; } // TheRapeuticclass
-        public string? Status { get; set; } // FastMoving, SlowMoving, New
+        public long? DrugTypeId { get; set; } // Filter by DrugTypeMaster ID (replaces Category string)
         public DateTime? StartDate { get; set; }
         public DateTime? EndDate { get; set; }
     }
