@@ -42,9 +42,17 @@ namespace TatiPharma.Application.Mapping
                 .ForMember(dest => dest.Creditdays, opt => opt.MapFrom(src => src.Creditdays));
 
             CreateMap<Customer, CustomerDetailDto>()
-                .IncludeBase<Customer, CustomerResponseDto>()  // Reuse base mappings
+                .IncludeBase<Customer, CustomerResponseDto>()
                 .ForMember(dest => dest.CustomerType, opt => opt.MapFrom(src => src.CustomerType))
-                .ForMember(dest => dest.Employee, opt => opt.MapFrom(src => src.Employee));
+                .ForMember(dest => dest.Employee, opt => opt.MapFrom(src => src.Employee))
+                .ForMember(dest => dest.TotalOrders, opt => opt.Ignore())
+                .ForMember(dest => dest.LifetimeValue, opt => opt.Ignore())
+                .ForMember(dest => dest.LastPurchase, opt => opt.Ignore())
+                .ForMember(dest => dest.ActivePolicies, opt => opt.Ignore())
+                .ForMember(dest => dest.OrderHistory, opt => opt.Ignore())
+                .ForMember(dest => dest.PurchaseTrend, opt => opt.Ignore())
+                .ForMember(dest => dest.CategorySplit, opt => opt.Ignore())
+                .ForMember(dest => dest.Engagement, opt => opt.Ignore());
 
             CreateMap<CustomerType, CustomerTypeDto>()
                 .ForMember(dest => dest.CusTypeName, opt => opt.MapFrom(src => src.CusTypeName ?? string.Empty))

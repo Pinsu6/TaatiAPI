@@ -64,8 +64,12 @@ namespace TatiPharma.Infrastructure.Repositories
         public async Task<Customer?> GetByIdAsync(long id)
         {
             return await _context.Customers
-                .Include(c => c.CustomerType)  // Eager load relations
+                .Include(c => c.CustomerType)
                 .Include(c => c.Employee)
+                .Include(c => c.SalesInvoices!) // Include invoices
+                    .ThenInclude(si => si.Details!) // Include details for category split
+                        .ThenInclude(sid => sid.Drug!)
+                            .ThenInclude(d => d.DrugTypeMaster) // For category
                 .FirstOrDefaultAsync(c => c.CustomerId == id);
         }
     }

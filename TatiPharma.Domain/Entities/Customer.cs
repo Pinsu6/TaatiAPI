@@ -96,5 +96,7 @@ namespace TatiPharma.Domain.Entities
 
         [ForeignKey("EmployeeId")]
         public Employee? Employee { get; set; }  // Navigation to Employee
+
+        public virtual ICollection<SalesInvoice> SalesInvoices { get; set; } = new List<SalesInvoice>();
     }
 }
