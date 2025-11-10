@@ -49,32 +49,77 @@ namespace TatiPharma.Application.Services
         //    return ApiResponse<ProductDetailDto>.SuccessResult(dto, "Product retrieved successfully");
         //}
 
+        //public async Task<ApiResponse<ProductDetailDto>> GetProductByIdAsync(long id)
+        //{
+        //    var product = await _productRepository.GetByIdAsync(id);
+        //    if (product == null)
+        //        return ApiResponse<ProductDetailDto>.ErrorResult(
+        //            new List<string> { "Product not found" });
+
+        //    var dto = _mapper.Map<ProductDetailDto>(product);
+
+        //    // === Stock Summary ===
+        //    var stockSummary = await _productRepository.GetStockSummaryAsync(id);
+        //    if (stockSummary != null)
+        //    {
+        //        stockSummary.MinLevel = product.MinLevel ?? 0; // ← FIXED: Set MinLevel; IsLowStock computes via getter
+        //        dto.StockSummary = stockSummary;
+        //    }
+
+        //    // === Active Batches ===
+        //    dto.ActiveBatches = await _productRepository.GetActiveBatchesAsync(id);
+
+        //    // === Pricing ===
+        //    dto.Pricing = new PriceBreakdownDto
+        //    {
+        //        UnitCost = product.UnitCost ?? 0m,
+        //        MarginPercent = product.Margin ?? 0m
+        //    };
+
+        //    return ApiResponse<ProductDetailDto>.SuccessResult(dto, "Product retrieved successfully");
+        //}
+
         public async Task<ApiResponse<ProductDetailDto>> GetProductByIdAsync(long id)
         {
             var product = await _productRepository.GetByIdAsync(id);
             if (product == null)
-                return ApiResponse<ProductDetailDto>.ErrorResult(
-                    new List<string> { "Product not found" });
+                return ApiResponse<ProductDetailDto>.ErrorResult(new List<string> { "Product not found" });
 
             var dto = _mapper.Map<ProductDetailDto>(product);
 
-            // === Stock Summary ===
-            var stockSummary = await _productRepository.GetStockSummaryAsync(id);
-            if (stockSummary != null)
+            // Stock Summary
+            dto.StockSummary = await _productRepository.GetStockSummaryAsync(id);
+            if (dto.StockSummary != null)
             {
-                stockSummary.MinLevel = product.MinLevel ?? 0; // ← FIXED: Set MinLevel; IsLowStock computes via getter
-                dto.StockSummary = stockSummary;
+                dto.StockSummary.MinLevel = product.MinLevel ?? 0;
+                dto.StockSummary.MaxLevel = product.MaxLevel ?? 0;
             }
 
-            // === Active Batches ===
+            // Active Batches
             dto.ActiveBatches = await _productRepository.GetActiveBatchesAsync(id);
 
-            // === Pricing ===
+            // Pricing
             dto.Pricing = new PriceBreakdownDto
             {
                 UnitCost = product.UnitCost ?? 0m,
-                MarginPercent = product.Margin ?? 0m
+                MarginPercent = product.Margin ?? 0m,
+                MarginAmount = (product.UnitCost ?? 0m) * (product.Margin ?? 0m) / 100m,
+                SalePrice = (product.UnitCost ?? 0m) * (1 + (product.Margin ?? 0m) / 100m)
             };
+
+            // Extras
+            dto.TotalRevenue = await _productRepository.GetTotalRevenueAsync(id);
+            dto.TurnoverRate = await _productRepository.GetTurnoverRateAsync(id);
+            dto.MonthlySalesTrend = await _productRepository.GetMonthlySalesTrendAsync(id);
+            dto.RegionalSales = await _productRepository.GetRegionalSalesAsync(id);
+            dto.RecentOrders = await _productRepository.GetRecentOrdersAsync(id);
+            dto.StockMovements = await _productRepository.GetStockMovementsAsync(id);
+
+            // Alerts (computed)
+            dto.Alerts = new List<AlertDto>();
+            if (dto.StockSummary?.IsLowStock ?? false) dto.Alerts.Add(new AlertDto { Message = "Low Stock Alert" });
+            if (dto.StockSummary?.IsOutOfStock ?? false) dto.Alerts.Add(new AlertDto { Message = "Out of Stock" });
+            if (dto.ActiveBatches.Any(b => b.IsExpiringSoon)) dto.Alerts.Add(new AlertDto { Message = "Batch Expiring Soon" });
 
             return ApiResponse<ProductDetailDto>.SuccessResult(dto, "Product retrieved successfully");
         }

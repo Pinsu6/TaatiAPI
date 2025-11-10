@@ -8,9 +8,9 @@ namespace TatiPharma.Application.DTOs
 {
     public class BatchSummaryDto
     {
-        public string? BatchNo { get; set; } = string.Empty;
+        public string BatchNo { get; set; } = string.Empty;
         public DateTime? ExpiryDate { get; set; }
         public long RemainingQty { get; set; }
-        public bool IsExpiringSoon => ExpiryDate <= DateTime.Today.AddMonths(3);
+        public bool IsExpiringSoon => ExpiryDate < DateTime.Today.AddMonths(3);
     }
 }

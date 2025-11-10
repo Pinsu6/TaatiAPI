@@ -14,5 +14,11 @@ namespace TatiPharma.Application.IRepositories
         Task<DrugMaster?> GetByIdAsync(long id);
         Task<StockSummaryDto?> GetStockSummaryAsync(long drugId);
         Task<List<BatchSummaryDto>> GetActiveBatchesAsync(long drugId);
+        Task<decimal> GetTotalRevenueAsync(long drugId);
+        Task<decimal> GetTurnoverRateAsync(long drugId);
+        Task<List<MonthlySalesDto>> GetMonthlySalesTrendAsync(long drugId);
+        Task<List<RegionalSalesDto>> GetRegionalSalesAsync(long drugId);
+        Task<List<RecentOrderDto>> GetRecentOrdersAsync(long drugId);
+        Task<List<StockMovementDto>> GetStockMovementsAsync(long drugId);
     }
 }

@@ -3,6 +3,66 @@
   "WorkspaceRootPath": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3A5022AB-1E49-47D0-88C7-1A6C8EFED4A3}|TatiPharma.Application\\TatiPharma.Application.csproj|c:\\mohit\\prince tati pharma\\api (2)\\api\\tatipharma.application\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A5022AB-1E49-47D0-88C7-1A6C8EFED4A3}|TatiPharma.Application\\TatiPharma.Application.csproj|solutionrelative:tatipharma.application\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A5022AB-1E49-47D0-88C7-1A6C8EFED4A3}|TatiPharma.Application\\TatiPharma.Application.csproj|c:\\mohit\\prince tati pharma\\api (2)\\api\\tatipharma.application\\irepositories\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A5022AB-1E49-47D0-88C7-1A6C8EFED4A3}|TatiPharma.Application\\TatiPharma.Application.csproj|solutionrelative:tatipharma.application\\irepositories\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61781448-E6AC-49E3-9369-7CDD70ED60D9}|TatiPharma.Infrastructure\\TatiPharma.Infrastructure.csproj|c:\\mohit\\prince tati pharma\\api (2)\\api\\tatipharma.infrastructure\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61781448-E6AC-49E3-9369-7CDD70ED60D9}|TatiPharma.Infrastructure\\TatiPharma.Infrastructure.csproj|solutionrelative:tatipharma.infrastructure\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A5022AB-1E49-47D0-88C7-1A6C8EFED4A3}|TatiPharma.Application\\TatiPharma.Application.csproj|c:\\mohit\\prince tati pharma\\api (2)\\api\\tatipharma.application\\mapping\\productmappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A5022AB-1E49-47D0-88C7-1A6C8EFED4A3}|TatiPharma.Application\\TatiPharma.Application.csproj|solutionrelative:tatipharma.application\\mapping\\productmappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A5022AB-1E49-47D0-88C7-1A6C8EFED4A3}|TatiPharma.Application\\TatiPharma.Application.csproj|c:\\mohit\\prince tati pharma\\api (2)\\api\\tatipharma.application\\dtos\\productdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A5022AB-1E49-47D0-88C7-1A6C8EFED4A3}|TatiPharma.Application\\TatiPharma.Application.csproj|solutionrelative:tatipharma.application\\dtos\\productdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A5022AB-1E49-47D0-88C7-1A6C8EFED4A3}|TatiPharma.Application\\TatiPharma.Application.csproj|c:\\mohit\\prince tati pharma\\api (2)\\api\\tatipharma.application\\dtos\\pricebreakdowndto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A5022AB-1E49-47D0-88C7-1A6C8EFED4A3}|TatiPharma.Application\\TatiPharma.Application.csproj|solutionrelative:tatipharma.application\\dtos\\pricebreakdowndto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A5022AB-1E49-47D0-88C7-1A6C8EFED4A3}|TatiPharma.Application\\TatiPharma.Application.csproj|c:\\mohit\\prince tati pharma\\api (2)\\api\\tatipharma.application\\dtos\\batchsummarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A5022AB-1E49-47D0-88C7-1A6C8EFED4A3}|TatiPharma.Application\\TatiPharma.Application.csproj|solutionrelative:tatipharma.application\\dtos\\batchsummarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A5022AB-1E49-47D0-88C7-1A6C8EFED4A3}|TatiPharma.Application\\TatiPharma.Application.csproj|c:\\mohit\\prince tati pharma\\api (2)\\api\\tatipharma.application\\dtos\\stocksummarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A5022AB-1E49-47D0-88C7-1A6C8EFED4A3}|TatiPharma.Application\\TatiPharma.Application.csproj|solutionrelative:tatipharma.application\\dtos\\stocksummarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A5022AB-1E49-47D0-88C7-1A6C8EFED4A3}|TatiPharma.Application\\TatiPharma.Application.csproj|c:\\mohit\\prince tati pharma\\api (2)\\api\\tatipharma.application\\dtos\\alertdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A5022AB-1E49-47D0-88C7-1A6C8EFED4A3}|TatiPharma.Application\\TatiPharma.Application.csproj|solutionrelative:tatipharma.application\\dtos\\alertdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A5022AB-1E49-47D0-88C7-1A6C8EFED4A3}|TatiPharma.Application\\TatiPharma.Application.csproj|c:\\mohit\\prince tati pharma\\api (2)\\api\\tatipharma.application\\dtos\\stockmovementdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A5022AB-1E49-47D0-88C7-1A6C8EFED4A3}|TatiPharma.Application\\TatiPharma.Application.csproj|solutionrelative:tatipharma.application\\dtos\\stockmovementdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A5022AB-1E49-47D0-88C7-1A6C8EFED4A3}|TatiPharma.Application\\TatiPharma.Application.csproj|c:\\mohit\\prince tati pharma\\api (2)\\api\\tatipharma.application\\dtos\\recentorderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A5022AB-1E49-47D0-88C7-1A6C8EFED4A3}|TatiPharma.Application\\TatiPharma.Application.csproj|solutionrelative:tatipharma.application\\dtos\\recentorderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A5022AB-1E49-47D0-88C7-1A6C8EFED4A3}|TatiPharma.Application\\TatiPharma.Application.csproj|c:\\mohit\\prince tati pharma\\api (2)\\api\\tatipharma.application\\dtos\\regionalsalesdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A5022AB-1E49-47D0-88C7-1A6C8EFED4A3}|TatiPharma.Application\\TatiPharma.Application.csproj|solutionrelative:tatipharma.application\\dtos\\regionalsalesdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A5022AB-1E49-47D0-88C7-1A6C8EFED4A3}|TatiPharma.Application\\TatiPharma.Application.csproj|c:\\mohit\\prince tati pharma\\api (2)\\api\\tatipharma.application\\dtos\\monthlysalesdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A5022AB-1E49-47D0-88C7-1A6C8EFED4A3}|TatiPharma.Application\\TatiPharma.Application.csproj|solutionrelative:tatipharma.application\\dtos\\monthlysalesdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A5022AB-1E49-47D0-88C7-1A6C8EFED4A3}|TatiPharma.Application\\TatiPharma.Application.csproj|c:\\mohit\\prince tati pharma\\api (2)\\api\\tatipharma.application\\iservices\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A5022AB-1E49-47D0-88C7-1A6C8EFED4A3}|TatiPharma.Application\\TatiPharma.Application.csproj|solutionrelative:tatipharma.application\\iservices\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E349E100-BBFF-4FA7-8898-31385E1AE0B0}|TatiPharma.API\\TatiPharma.API.csproj|c:\\mohit\\prince tati pharma\\api (2)\\api\\tatipharma.api\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E349E100-BBFF-4FA7-8898-31385E1AE0B0}|TatiPharma.API\\TatiPharma.API.csproj|solutionrelative:tatipharma.api\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{39CDAA3D-C3F7-4AD0-953C-E5B86A8C6493}|TatiPharma.Domain\\TatiPharma.Domain.csproj|c:\\mohit\\prince tati pharma\\api (2)\\api\\tatipharma.domain\\entities\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{39CDAA3D-C3F7-4AD0-953C-E5B86A8C6493}|TatiPharma.Domain\\TatiPharma.Domain.csproj|solutionrelative:tatipharma.domain\\entities\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -70,24 +130,219 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ProductDetailDto.cs",
+              "DocumentMoniker": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\DTOs\\ProductDetailDto.cs",
+              "RelativeDocumentMoniker": "TatiPharma.Application\\DTOs\\ProductDetailDto.cs",
+              "ToolTip": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\DTOs\\ProductDetailDto.cs",
+              "RelativeToolTip": "TatiPharma.Application\\DTOs\\ProductDetailDto.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAQwB4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T19:40:18.892Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ProductMappingProfile.cs",
+              "DocumentMoniker": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\Mapping\\ProductMappingProfile.cs",
+              "RelativeDocumentMoniker": "TatiPharma.Application\\Mapping\\ProductMappingProfile.cs",
+              "ToolTip": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\Mapping\\ProductMappingProfile.cs",
+              "RelativeToolTip": "TatiPharma.Application\\Mapping\\ProductMappingProfile.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAqwEUAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T19:29:18.964Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProductRepository.cs",
+              "DocumentMoniker": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Infrastructure\\Repositories\\ProductRepository.cs",
+              "RelativeDocumentMoniker": "TatiPharma.Infrastructure\\Repositories\\ProductRepository.cs",
+              "ToolTip": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Infrastructure\\Repositories\\ProductRepository.cs",
+              "RelativeToolTip": "TatiPharma.Infrastructure\\Repositories\\ProductRepository.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAQwAwBAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T19:30:18.628Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IProductRepository.cs",
+              "DocumentMoniker": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\IRepositories\\IProductRepository.cs",
+              "RelativeDocumentMoniker": "TatiPharma.Application\\IRepositories\\IProductRepository.cs",
+              "ToolTip": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\IRepositories\\IProductRepository.cs",
+              "RelativeToolTip": "TatiPharma.Application\\IRepositories\\IProductRepository.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABUAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T19:29:05.758Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ProductService.cs",
+              "DocumentMoniker": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\Services\\ProductService.cs",
+              "RelativeDocumentMoniker": "TatiPharma.Application\\Services\\ProductService.cs",
+              "ToolTip": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\Services\\ProductService.cs*",
+              "RelativeToolTip": "TatiPharma.Application\\Services\\ProductService.cs*",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAqwHwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T19:29:29.579Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PriceBreakdownDto.cs",
+              "DocumentMoniker": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\DTOs\\PriceBreakdownDto.cs",
+              "RelativeDocumentMoniker": "TatiPharma.Application\\DTOs\\PriceBreakdownDto.cs",
+              "ToolTip": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\DTOs\\PriceBreakdownDto.cs",
+              "RelativeToolTip": "TatiPharma.Application\\DTOs\\PriceBreakdownDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T19:40:04.964Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "BatchSummaryDto.cs",
+              "DocumentMoniker": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\DTOs\\BatchSummaryDto.cs",
+              "RelativeDocumentMoniker": "TatiPharma.Application\\DTOs\\BatchSummaryDto.cs",
+              "ToolTip": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\DTOs\\BatchSummaryDto.cs",
+              "RelativeToolTip": "TatiPharma.Application\\DTOs\\BatchSummaryDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T19:39:40.405Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "StockSummaryDto.cs",
+              "DocumentMoniker": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\DTOs\\StockSummaryDto.cs",
+              "RelativeDocumentMoniker": "TatiPharma.Application\\DTOs\\StockSummaryDto.cs",
+              "ToolTip": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\DTOs\\StockSummaryDto.cs",
+              "RelativeToolTip": "TatiPharma.Application\\DTOs\\StockSummaryDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T19:39:14.924Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AlertDto.cs",
+              "DocumentMoniker": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\DTOs\\AlertDto.cs",
+              "RelativeDocumentMoniker": "TatiPharma.Application\\DTOs\\AlertDto.cs",
+              "ToolTip": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\DTOs\\AlertDto.cs",
+              "RelativeToolTip": "TatiPharma.Application\\DTOs\\AlertDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T19:38:48.903Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "StockMovementDto.cs",
+              "DocumentMoniker": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\DTOs\\StockMovementDto.cs",
+              "RelativeDocumentMoniker": "TatiPharma.Application\\DTOs\\StockMovementDto.cs",
+              "ToolTip": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\DTOs\\StockMovementDto.cs",
+              "RelativeToolTip": "TatiPharma.Application\\DTOs\\StockMovementDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T19:38:24.832Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "RecentOrderDto.cs",
+              "DocumentMoniker": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\DTOs\\RecentOrderDto.cs",
+              "RelativeDocumentMoniker": "TatiPharma.Application\\DTOs\\RecentOrderDto.cs",
+              "ToolTip": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\DTOs\\RecentOrderDto.cs",
+              "RelativeToolTip": "TatiPharma.Application\\DTOs\\RecentOrderDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T19:38:02.014Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "RegionalSalesDto.cs",
+              "DocumentMoniker": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\DTOs\\RegionalSalesDto.cs",
+              "RelativeDocumentMoniker": "TatiPharma.Application\\DTOs\\RegionalSalesDto.cs",
+              "ToolTip": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\DTOs\\RegionalSalesDto.cs",
+              "RelativeToolTip": "TatiPharma.Application\\DTOs\\RegionalSalesDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T19:37:40.125Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MonthlySalesDto.cs",
+              "DocumentMoniker": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\DTOs\\MonthlySalesDto.cs",
+              "RelativeDocumentMoniker": "TatiPharma.Application\\DTOs\\MonthlySalesDto.cs",
+              "ToolTip": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\DTOs\\MonthlySalesDto.cs",
+              "RelativeToolTip": "TatiPharma.Application\\DTOs\\MonthlySalesDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T19:37:07.108Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IProductService.cs",
+              "DocumentMoniker": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\IServices\\IProductService.cs",
+              "RelativeDocumentMoniker": "TatiPharma.Application\\IServices\\IProductService.cs",
+              "ToolTip": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\IServices\\IProductService.cs",
+              "RelativeToolTip": "TatiPharma.Application\\IServices\\IProductService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T19:29:12.813Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.API\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "TatiPharma.API\\Controllers\\ProductsController.cs",
+              "ToolTip": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.API\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "TatiPharma.API\\Controllers\\ProductsController.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAUwEQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T19:28:49.639Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "Customer.cs",
               "DocumentMoniker": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Domain\\Entities\\Customer.cs",
               "RelativeDocumentMoniker": "TatiPharma.Domain\\Entities\\Customer.cs",
               "ToolTip": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Domain\\Entities\\Customer.cs",
               "RelativeToolTip": "TatiPharma.Domain\\Entities\\Customer.cs",
-              "ViewState": "AgIAAFUAAAAAAAAAAAAkwGMAAABoAAAAAAAAAA==",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAkwGYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-10T19:04:06.276Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 16,
               "Title": "SalesInvoiceDetail.cs",
               "DocumentMoniker": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Domain\\Entities\\SalesInvoiceDetail.cs",
               "RelativeDocumentMoniker": "TatiPharma.Domain\\Entities\\SalesInvoiceDetail.cs",
@@ -100,7 +355,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 17,
               "Title": "SalesInvoice.cs",
               "DocumentMoniker": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Domain\\Entities\\SalesInvoice.cs",
               "RelativeDocumentMoniker": "TatiPharma.Domain\\Entities\\SalesInvoice.cs",
@@ -113,7 +368,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 20,
               "Title": "CustomerService.cs",
               "DocumentMoniker": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\Services\\CustomerService.cs",
               "RelativeDocumentMoniker": "TatiPharma.Application\\Services\\CustomerService.cs",
@@ -126,7 +381,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 21,
               "Title": "CustomerMappingProfile.cs",
               "DocumentMoniker": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\Mapping\\CustomerMappingProfile.cs",
               "RelativeDocumentMoniker": "TatiPharma.Application\\Mapping\\CustomerMappingProfile.cs",
@@ -139,7 +394,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 22,
               "Title": "CustomerDetailDto.cs",
               "DocumentMoniker": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\DTOs\\CustomerDetailDto.cs",
               "RelativeDocumentMoniker": "TatiPharma.Application\\DTOs\\CustomerDetailDto.cs",
@@ -152,7 +407,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 19,
               "Title": "AnalyticsRepository.cs",
               "DocumentMoniker": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Infrastructure\\Repositories\\AnalyticsRepository.cs",
               "RelativeDocumentMoniker": "TatiPharma.Infrastructure\\Repositories\\AnalyticsRepository.cs",
@@ -165,7 +420,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 18,
               "Title": "CustomerRepository.cs",
               "DocumentMoniker": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Infrastructure\\Repositories\\CustomerRepository.cs",
               "RelativeDocumentMoniker": "TatiPharma.Infrastructure\\Repositories\\CustomerRepository.cs",
@@ -178,7 +433,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 23,
               "Title": "EngagementDto.cs",
               "DocumentMoniker": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\DTOs\\EngagementDto.cs",
               "RelativeDocumentMoniker": "TatiPharma.Application\\DTOs\\EngagementDto.cs",
@@ -191,7 +446,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 24,
               "Title": "CategorySplitDto.cs",
               "DocumentMoniker": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\DTOs\\CategorySplitDto.cs",
               "RelativeDocumentMoniker": "TatiPharma.Application\\DTOs\\CategorySplitDto.cs",
@@ -204,7 +459,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 25,
               "Title": "MonthlyPurchaseDto.cs",
               "DocumentMoniker": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\DTOs\\MonthlyPurchaseDto.cs",
               "RelativeDocumentMoniker": "TatiPharma.Application\\DTOs\\MonthlyPurchaseDto.cs",
@@ -217,7 +472,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 26,
               "Title": "OrderHistoryDto.cs",
               "DocumentMoniker": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\DTOs\\OrderHistoryDto.cs",
               "RelativeDocumentMoniker": "TatiPharma.Application\\DTOs\\OrderHistoryDto.cs",
@@ -230,7 +485,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 27,
               "Title": "ICustomerService.cs",
               "DocumentMoniker": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\IServices\\ICustomerService.cs",
               "RelativeDocumentMoniker": "TatiPharma.Application\\IServices\\ICustomerService.cs",
@@ -243,7 +498,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 28,
               "Title": "ICustomerRepository.cs",
               "DocumentMoniker": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.Application\\IRepositories\\ICustomerRepository.cs",
               "RelativeDocumentMoniker": "TatiPharma.Application\\IRepositories\\ICustomerRepository.cs",
@@ -256,7 +511,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 29,
               "Title": "CustomerController.cs",
               "DocumentMoniker": "C:\\Mohit\\Prince Tati Pharma\\API (2)\\API\\TatiPharma.API\\Controllers\\CustomerController.cs",
               "RelativeDocumentMoniker": "TatiPharma.API\\Controllers\\CustomerController.cs",

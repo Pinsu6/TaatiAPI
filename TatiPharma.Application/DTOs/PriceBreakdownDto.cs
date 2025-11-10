@@ -10,7 +10,7 @@ namespace TatiPharma.Application.DTOs
     {
         public decimal UnitCost { get; set; }
         public decimal MarginPercent { get; set; }
-        public decimal MarginAmount => Math.Round(UnitCost * (MarginPercent / 100), 2);
-        public decimal SalePrice => UnitCost + MarginAmount;
+        public decimal MarginAmount { get; set; }
+        public decimal SalePrice { get; set; }
     }
 }
