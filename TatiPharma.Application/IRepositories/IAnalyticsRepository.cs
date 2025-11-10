@@ -29,13 +29,13 @@ namespace TatiPharma.Application.IRepositories
         Task<List<TopSkuDto>> GetTopSkusAsync(DateTime start, DateTime end, int topN, long? drugTypeId = null);
         Task<List<ProductInsightDto>> GetProductInsightsAsync(DateTime start, DateTime end, DateTime prevStart, DateTime prevEnd, long? drugTypeId = null);
         Task<List<AiRecommendationDto>> GetAiRecommendationsAsync(DateTime start, DateTime end, long? drugTypeId = null);
-        Task<decimal> GetTotalStockValueAsync(string? category = null);
-        Task<int> GetStockOutsCountAsync(string? category = null);
-        Task<int> GetOverstockAlertsCountAsync(string? category = null);
-        Task<decimal> GetAvgTurnoverAsync(DateTime start, DateTime end, string? category = null);
-        Task<List<StockByCategoryDto>> GetStockByCategoryAsync(string? category = null);
-        Task<List<TurnoverRatioDto>> GetMonthlyTurnoverAsync(int year, string? category = null);
-        Task<List<StockAlertDto>> GetStockAlertsAsync(string? category = null);
+        //Task<decimal> GetTotalStockValueAsync(string? category = null);
+        //Task<int> GetStockOutsCountAsync(string? category = null);
+        //Task<int> GetOverstockAlertsCountAsync(string? category = null);
+        //Task<decimal> GetAvgTurnoverAsync(DateTime start, DateTime end, string? category = null);
+        //Task<List<StockByCategoryDto>> GetStockByCategoryAsync(string? category = null);
+        //Task<List<TurnoverRatioDto>> GetMonthlyTurnoverAsync(int year, string? category = null);
+        //Task<List<StockAlertDto>> GetStockAlertsAsync(string? category = null);
         Task<decimal> GetTotalSalesYtdAsync(DateTime ytdStart, DateTime ytdEnd, string? region, string? category);
         Task<decimal> GetSalesGrowthAsync(DateTime currentStart, DateTime currentEnd, DateTime prevStart, DateTime prevEnd, string? region, string? category);
         Task<int> GetActivePharmaciesCountAsync(string? region, string? search);
@@ -50,5 +50,13 @@ namespace TatiPharma.Application.IRepositories
         IQueryable<ProductSalesRaw> GetProductFilteredQuery(DateTime start, DateTime end, long? drugTypeId = null);
         Task<List<ProductSalesRaw>> GetProductSalesListAsync(DateTime start, DateTime end, long? drugTypeId = null);
         Task<List<ProductStockRaw>> GetProductStocksAsync(); // For AI recos
+
+        Task<decimal> GetTotalStockValueAsync(string? category = null, long? drugTypeId = null);
+        Task<int> GetStockOutsCountAsync(string? category = null, long? drugTypeId = null);
+        Task<int> GetOverstockAlertsCountAsync(string? category = null, long? drugTypeId = null);
+        Task<decimal> GetAvgTurnoverAsync(DateTime start, DateTime end, string? category = null, long? drugTypeId = null);
+        Task<List<StockByCategoryDto>> GetStockByCategoryAsync(string? category = null, long? drugTypeId = null);
+        Task<List<TurnoverRatioDto>> GetMonthlyTurnoverAsync(int year, string? category = null, long? drugTypeId = null);
+        Task<List<StockAlertDto>> GetStockAlertsAsync(string? category = null, long? drugTypeId = null);
     }
 }

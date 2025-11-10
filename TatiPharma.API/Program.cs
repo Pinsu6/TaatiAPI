@@ -53,7 +53,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowAngularApp",
         policy =>
         {
-            policy.WithOrigins("http://localhost:4200")
+            policy.WithOrigins("http://localhost:4200", "https://insights.tatipharma.com")
                   .AllowAnyHeader()
                   .AllowAnyMethod();
         });
@@ -141,7 +141,7 @@ app.UseAuthentication();
 
 app.UseAuthorization();
 
-app.UseAuthorization();
+
 
 app.MapControllers();
 

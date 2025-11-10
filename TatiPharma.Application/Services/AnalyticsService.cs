@@ -259,6 +259,48 @@ namespace TatiPharma.Application.Services
         {
             return previous > 0 ? (current - previous) / previous * 100 : 0;
         }
+        //public async Task<ApiResponse<InventoryAnalyticsDto>> GetInventoryAnalyticsAsync(InventoryFilterRequestDto request)
+        //{
+        //    try
+        //    {
+        //        var now = DateTime.UtcNow;
+        //        var start = request.StartDate ?? new DateTime(now.Year, 1, 1);
+        //        var end = request.EndDate ?? now;
+
+        //        // KPIs
+        //        var kpis = new InventoryKpiDto
+        //        {
+        //            TotalStockValue = await _salesAnalyticsRepository.GetTotalStockValueAsync(request.Category),
+        //            StockOuts = await _salesAnalyticsRepository.GetStockOutsCountAsync(request.Category),
+        //            OverstockAlerts = await _salesAnalyticsRepository.GetOverstockAlertsCountAsync(request.Category),
+        //            AvgTurnover = await _salesAnalyticsRepository.GetAvgTurnoverAsync(start, end, request.Category)
+        //        };
+
+        //        // Stock by Category
+        //        var stockByCategory = await _salesAnalyticsRepository.GetStockByCategoryAsync(request.Category);
+
+        //        // Turnover Ratio
+        //        var turnoverRatio = await _salesAnalyticsRepository.GetMonthlyTurnoverAsync(now.Year, request.Category);
+
+        //        // Stock Alerts
+        //        var stockAlerts = await _salesAnalyticsRepository.GetStockAlertsAsync(request.Category);
+
+        //        var result = new InventoryAnalyticsDto
+        //        {
+        //            Kpis = kpis,
+        //            StockByCategory = stockByCategory,
+        //            TurnoverRatio = turnoverRatio,
+        //            StockAlerts = stockAlerts
+        //        };
+
+        //        return ApiResponse<InventoryAnalyticsDto>.SuccessResult(result, "Inventory analytics retrieved successfully");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return ApiResponse<InventoryAnalyticsDto>.ErrorResult(new List<string> { ex.Message });
+        //    }
+        //}
+
         public async Task<ApiResponse<InventoryAnalyticsDto>> GetInventoryAnalyticsAsync(InventoryFilterRequestDto request)
         {
             try
@@ -267,23 +309,17 @@ namespace TatiPharma.Application.Services
                 var start = request.StartDate ?? new DateTime(now.Year, 1, 1);
                 var end = request.EndDate ?? now;
 
-                // KPIs
                 var kpis = new InventoryKpiDto
                 {
-                    TotalStockValue = await _salesAnalyticsRepository.GetTotalStockValueAsync(request.Category),
-                    StockOuts = await _salesAnalyticsRepository.GetStockOutsCountAsync(request.Category),
-                    OverstockAlerts = await _salesAnalyticsRepository.GetOverstockAlertsCountAsync(request.Category),
-                    AvgTurnover = await _salesAnalyticsRepository.GetAvgTurnoverAsync(start, end, request.Category)
+                    TotalStockValue = await _salesAnalyticsRepository.GetTotalStockValueAsync(request.Category, request.DrugTypeId),
+                    StockOuts = await _salesAnalyticsRepository.GetStockOutsCountAsync(request.Category, request.DrugTypeId),
+                    OverstockAlerts = await _salesAnalyticsRepository.GetOverstockAlertsCountAsync(request.Category, request.DrugTypeId),
+                    AvgTurnover = await _salesAnalyticsRepository.GetAvgTurnoverAsync(start, end, request.Category, request.DrugTypeId)
                 };
 
-                // Stock by Category
-                var stockByCategory = await _salesAnalyticsRepository.GetStockByCategoryAsync(request.Category);
-
-                // Turnover Ratio
-                var turnoverRatio = await _salesAnalyticsRepository.GetMonthlyTurnoverAsync(now.Year, request.Category);
-
-                // Stock Alerts
-                var stockAlerts = await _salesAnalyticsRepository.GetStockAlertsAsync(request.Category);
+                var stockByCategory = await _salesAnalyticsRepository.GetStockByCategoryAsync(request.Category, request.DrugTypeId);
+                var turnoverRatio = await _salesAnalyticsRepository.GetMonthlyTurnoverAsync(now.Year, request.Category, request.DrugTypeId);
+                var stockAlerts = await _salesAnalyticsRepository.GetStockAlertsAsync(request.Category, request.DrugTypeId);
 
                 var result = new InventoryAnalyticsDto
                 {

@@ -8,7 +8,8 @@ namespace TatiPharma.Application.DTOs
 {
     public class InventoryFilterRequestDto
     {
-        public string? Category { get; set; }
+        public string? Category { get; set; }           // DrugTypeName
+        public long? DrugTypeId { get; set; }           // ← NEW
         public DateTime? StartDate { get; set; }
         public DateTime? EndDate { get; set; }
     }
