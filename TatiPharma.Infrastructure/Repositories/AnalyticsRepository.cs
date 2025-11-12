@@ -26,32 +26,7 @@ namespace TatiPharma.Infrastructure.Repositories
             }
 
 
-        //    private IQueryable<SalesInvoiceDetail> GetFilteredQuery(
-        //DateTime start, DateTime end,
-        //string? city = null, string? category = null)
-        //    {
-        //        var q = _context.SalesInvoiceDetails
-        //            .Include(d => d.SalesInvoice!)
-        //                .ThenInclude(i => i.Customer!)
-        //                    .ThenInclude(c => c.CustomerType)
-        //            .Include(d => d.Drug!)
-        //                .ThenInclude(dm => dm.DrugTypeMaster)
-        //            .Where(d =>
-        //                d.SalesInvoice != null &&
-        //                d.SalesInvoice.BillDate.HasValue &&
-        //                d.SalesInvoice.BillDate.Value.Date >= start.Date &&
-        //                d.SalesInvoice.BillDate.Value.Date <= end.Date &&
-        //                d.IsActive == true && d.IsDeleted != true &&
-        //                d.SalesInvoice.IsActive == true && d.SalesInvoice.IsDeleted != true);
-
-        //        if (!string.IsNullOrEmpty(city))
-        //            q = q.Where(d => d.SalesInvoice!.Customer!.City == city);
-
-        //        if (!string.IsNullOrEmpty(category))
-        //            q = q.Where(d => d.Drug!.DrugTypeMaster!.DrugTypeName == category);
-
-        //        return q;
-        //    }
+        
 
         private IQueryable<SalesInvoiceDetail> GetFilteredQuery(
             DateTime start, DateTime end,
@@ -78,12 +53,7 @@ namespace TatiPharma.Infrastructure.Repositories
             return q;
         }
 
-        //public async Task<decimal> GetTotalSalesAsync(DateTime start, DateTime end,
-        //        string? region = null, string? category = null)
-        //    {
-        //        var q = GetFilteredQuery(start, end, region, category);
-        //        return await q.SumAsync(d => d.TotalAmount ?? 0m);
-        //    }
+        
 
         public async Task<decimal> GetTotalSalesAsync(DateTime start, DateTime end, string? city = null, string? category = null)
         {
@@ -91,12 +61,7 @@ namespace TatiPharma.Infrastructure.Repositories
             return await q.SumAsync(d => d.TotalAmount ?? 0m);
         }
 
-        //public async Task<int> GetOrderCountAsync(DateTime start, DateTime end,
-        //        string? region = null, string? category = null)
-        //    {
-        //        var q = GetFilteredQuery(start, end, region, category);
-        //        return await q.Select(d => d.SalesInvoiceId).Distinct().CountAsync();
-        //    }
+        
 
         public async Task<int> GetOrderCountAsync(DateTime start, DateTime end, string? city = null, string? category = null)
         {
@@ -104,39 +69,7 @@ namespace TatiPharma.Infrastructure.Repositories
             return await q.Select(d => d.SalesInvoiceId).Distinct().CountAsync();
         }
 
-        //public async Task<List<MonthlySalesRaw>> GetMonthlySalesAsync(int year,
-        //    string? city = null, string? category = null) // CHANGED: region → city
-        //{
-        //    var start = new DateTime(year, 1, 1);
-        //    var end = new DateTime(year, 12, 31);
-        //    var q = GetFilteredQuery(start, end, city, category);
-        //    var grouped = await q
-        //        .GroupBy(d => new
-        //        {
-        //            Month = d.SalesInvoice!.BillDate!.Value.Month,
-        //            Type = d.SalesInvoice.Customer!.CustomerType!.CusTypeName ?? "Wholesale" // CHANGED: Default to Wholesale since no Retail
-        //        })
-        //        .Select(g => new
-        //        {
-        //            g.Key.Month,
-        //            g.Key.Type,
-        //            Revenue = g.Sum(x => x.TotalAmount ?? 0m)
-        //        })
-        //        .ToListAsync();
-
-        //    var result = Enumerable.Range(1, 12)
-        //        .Select(m => new MonthlySalesRaw
-        //        {
-        //            Month = m,
-        //            Retail = 0m, // Always 0 as per note
-        //            Wholesale = grouped
-        //                .Where(x => x.Month == m)
-        //                .Sum(x => x.Revenue) // All to Wholesale
-        //        })
-        //        .ToList();
-        //    return result;
-        //}
-
+        
         public async Task<List<MonthlySalesRaw>> GetMonthlySalesAsync(int year, string? city = null, string? category = null)
         {
             var start = new DateTime(year, 1, 1);
@@ -166,23 +99,7 @@ namespace TatiPharma.Infrastructure.Repositories
             return result;
         }
 
-        //public async Task<List<TopProductDto>> GetTopProductsAsync(
-        //        DateTime start, DateTime end, int topN,
-        //        string? region = null, string? category = null)
-        //    {
-        //        var q = GetFilteredQuery(start, end, region, category);
-
-        //        return await q
-        //            .GroupBy(d => d.Drug!.DrugName ?? "Unknown")
-        //            .Select(g => new TopProductDto
-        //            {
-        //                ProductName = g.Key,
-        //                Revenue = g.Sum(x => x.TotalAmount ?? 0m)
-        //            })
-        //            .OrderByDescending(p => p.Revenue)
-        //            .Take(topN)
-        //            .ToListAsync();
-        //    }
+       
 
         public async Task<List<TopProductDto>> GetTopProductsAsync(DateTime start, DateTime end, int topN, string? city = null, string? category = null)
         {
@@ -200,21 +117,6 @@ namespace TatiPharma.Infrastructure.Repositories
         }
 
 
-        //public async Task<List<RegionSalesRaw>> GetRegionSalesAsync(
-        //    DateTime start, DateTime end,
-        //    string? city = null, string? category = null) // CHANGED: region → city
-        //{
-        //    var q = GetFilteredQuery(start, end, city, category);
-        //    return await q
-        //        .GroupBy(d => d.SalesInvoice!.Customer!.City ?? "Unknown") // CHANGED to City
-        //        .Select(g => new RegionSalesRaw
-        //        {
-        //            Region = g.Key,
-        //            Revenue = g.Sum(x => x.TotalAmount ?? 0m),
-        //            Orders = g.Select(x => x.SalesInvoiceId).Distinct().Count()
-        //        })
-        //        .ToListAsync();
-        //}
 
         public async Task<List<RegionSalesRaw>> GetRegionSalesAsync(DateTime start, DateTime end, string? city = null, string? category = null)
         {
