@@ -8,8 +8,8 @@ namespace TatiPharma.Application.DTOs
 {
     public class SalesAnalyticsFilterRequestDto
     {
-        public string Period { get; set; } = "ThisMonth";
-        public string? Region { get; set; }
+        public string? City { get; set; }
         public string? ProductCategory { get; set; }
+        public string Period { get; set; } = "ThisYear";
     }
 }
