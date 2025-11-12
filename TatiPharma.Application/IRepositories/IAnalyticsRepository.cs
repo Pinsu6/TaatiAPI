@@ -30,7 +30,7 @@ namespace TatiPharma.Application.IRepositories
         Task<List<MonthlyRevenueDto>> GetRevenuePerformanceAsync(int year, string? region, string? category);
         Task<List<ProductCategoryShareDto>> GetProductCategoriesShareAsync(DateTime start, DateTime end, string? category);
         Task<List<RegionalRevenueDto>> GetRegionalPerformanceAsync(DateTime start, DateTime end, string? region, string? category);
-        Task<List<TopPharmacyDto>> GetTopPharmaciesAsync(DateTime start, DateTime end, string? region, string? category, string? search, int topN = 10);
+        
         IQueryable<ProductSalesRaw> GetProductFilteredQuery(DateTime start, DateTime end, long? drugTypeId = null);
         Task<List<ProductSalesRaw>> GetProductSalesListAsync(DateTime start, DateTime end, long? drugTypeId = null);
         Task<List<ProductStockRaw>> GetProductStocksAsync(); 
@@ -41,5 +41,18 @@ namespace TatiPharma.Application.IRepositories
         Task<List<StockByCategoryDto>> GetStockByCategoryAsync(string? category = null, long? drugTypeId = null);
         Task<List<TurnoverRatioDto>> GetMonthlyTurnoverAsync(int year, string? category = null, long? drugTypeId = null);
         Task<List<StockAlertDto>> GetStockAlertsAsync(string? category = null, long? drugTypeId = null);
+
+        Task<List<CityDto>> GetCitiesAsync();
+        Task<List<ProductDropdownDto>> GetProductsAsync(string? search);
+        Task<List<DrugTypeDropdownDto>> GetDrugTypesAsync();
+        Task<int> GetDataYearAsync();
+
+        Task<List<TopPharmacyDto>> GetTopPharmaciesAsync(
+        DateTime start,
+        DateTime end,
+        string? city,
+        string? category,
+        string? search,
+        int topN = 10);
     }
 }

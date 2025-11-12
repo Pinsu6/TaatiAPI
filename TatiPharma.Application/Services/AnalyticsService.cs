@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DocumentFormat.OpenXml.InkML;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -336,6 +337,118 @@ namespace TatiPharma.Application.Services
                 return ApiResponse<InventoryAnalyticsDto>.ErrorResult(new List<string> { ex.Message });
             }
         }
+        //public async Task<ApiResponse<DashboardAnalyticsDto>> GetDashboardAnalyticsAsync(DashboardFilterRequestDto request)
+        //{
+        //    try
+        //    {
+        //        var now = DateTime.UtcNow;
+        //        var (start, end) = GetPeriodDates(request.Period, now);
+        //        var (prevStart, prevEnd) = GetPreviousPeriodDates(start, request.Period);
+        //        var ytdStart = new DateTime(now.Year, 1, 1);
+        //        var ytdEnd = now;
+
+        //        // KPIs
+        //        var kpis = new DashboardKpiDto
+        //        {
+        //            TotalSalesYtd = await _salesAnalyticsRepository.GetTotalSalesYtdAsync(ytdStart, ytdEnd, request.Region, request.ProductCategory),
+        //            SalesGrowth = await _salesAnalyticsRepository.GetSalesGrowthAsync(start, end, prevStart, prevEnd, request.Region, request.ProductCategory),
+        //            ActivePharmacies = await _salesAnalyticsRepository.GetActivePharmaciesCountAsync(request.Region, request.Search),
+        //            TotalCustomers = await _salesAnalyticsRepository.GetTotalCustomersCountAsync(request.Region, request.Search),
+        //            OrderFulfillment = await _salesAnalyticsRepository.GetOrderFulfillmentAsync(start, end, request.Region, request.ProductCategory),
+        //            FulfillmentChange = await _salesAnalyticsRepository.GetFulfillmentChangeAsync(start, end, prevStart, prevEnd, request.Region, request.ProductCategory)
+        //        };
+
+        //        // Revenue Performance
+        //        var revenuePerformance = await _salesAnalyticsRepository.GetRevenuePerformanceAsync(now.Year, request.Region, request.ProductCategory);
+
+        //        // Product Categories
+        //        var productCategories = await _salesAnalyticsRepository.GetProductCategoriesShareAsync(start, end, request.ProductCategory);
+
+        //        // Regional Performance
+        //        var regionalPerformance = await _salesAnalyticsRepository.GetRegionalPerformanceAsync(start, end, request.Region, request.ProductCategory);
+
+        //        // Top Pharmacies
+        //        var topPharmacies = await _salesAnalyticsRepository.GetTopPharmaciesAsync(start, end, request.Region, request.ProductCategory, request.Search);
+
+        //        var result = new DashboardAnalyticsDto
+        //        {
+        //            Kpis = kpis,
+        //            RevenuePerformance = revenuePerformance,
+        //            ProductCategories = productCategories,
+        //            RegionalPerformance = regionalPerformance,
+        //            TopPharmacies = topPharmacies
+        //        };
+
+        //        return ApiResponse<DashboardAnalyticsDto>.SuccessResult(result, "Dashboard analytics retrieved successfully");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return ApiResponse<DashboardAnalyticsDto>.ErrorResult(new List<string> { ex.Message });
+        //    }
+        //}
+
+        //        public async Task<ApiResponse<DashboardAnalyticsDto>> GetDashboardAnalyticsAsync(DashboardFilterRequestDto request)
+        //        {
+        //            try
+        //            {
+        //                var now = DateTime.UtcNow;
+        //                var (start, end) = GetPeriodDates(request.Period, now);
+        //                var (prevStart, prevEnd) = GetPreviousPeriodDates(start, request.Period);
+        //                var ytdStart = new DateTime(now.Year, 1, 1);
+        //                var ytdEnd = now;
+
+        //                // KPIs
+        //                var kpis = new DashboardKpiDto
+        //                {
+        //                    TotalSalesYtd = await _salesAnalyticsRepository.GetTotalSalesYtdAsync(ytdStart, ytdEnd, request.Region, request.ProductCategory),
+        //                    SalesGrowth = await _salesAnalyticsRepository.GetSalesGrowthAsync(start, end, prevStart, prevEnd, request.Region, request.ProductCategory),
+        //                    ActivePharmacies = await _salesAnalyticsRepository.GetActivePharmaciesCountAsync(request.Region, request.Search),
+        //                    TotalCustomers = await _salesAnalyticsRepository.GetTotalCustomersCountAsync(request.Region, request.Search),
+        //                    OrderFulfillment = await _salesAnalyticsRepository.GetOrderFulfillmentAsync(start, end, request.Region, request.ProductCategory),
+        //                    FulfillmentChange = await _salesAnalyticsRepository.GetFulfillmentChangeAsync(start, end, prevStart, prevEnd, request.Region, request.ProductCategory)
+        //                };
+
+        //                // Revenue Performance (use current year or data year)
+        //                var revenueYear = await _salesAnalyticsRepository.GetDataYearAsync(); // NEW: Detect year with data
+        //                var revenuePerformance = await _salesAnalyticsRepository.GetRevenuePerformanceAsync(revenueYear, request.Region, request.ProductCategory);
+
+        //                // Product Categories
+        //                var productCategories = await _salesAnalyticsRepository.GetProductCategoriesShareAsync(start, end, request.ProductCategory);
+
+        //                // Regional Performance (now by City)
+        //                var regionalPerformance = await _salesAnalyticsRepository.GetRegionalPerformanceAsync(start, end, request.Region, request.ProductCategory);
+
+        //                // Top Pharmacies
+        //                //var topPharmacies = await _salesAnalyticsRepository.GetTopPharmaciesAsync(start, end, request.Region, request.ProductCategory, request.Search);
+
+
+        //                var topPharmacies = await _salesAnalyticsRepository.GetTopPharmaciesAsync(
+        //    start, end,
+        //    request.City,           // Correct
+        //    request.ProductCategory,
+        //    request.Search
+        //);
+
+        //                var result = new DashboardAnalyticsDto
+        //                {
+        //                    Kpis = kpis,
+        //                    RevenuePerformance = revenuePerformance,
+        //                    ProductCategories = productCategories,
+        //                    RegionalPerformance = regionalPerformance,
+        //                    TopPharmacies = topPharmacies,
+        //                    Cities = await _salesAnalyticsRepository.GetCitiesAsync(),
+        //                    Products = await _salesAnalyticsRepository.GetProductsAsync(request.Search),
+        //                    DrugTypes = await _salesAnalyticsRepository.GetDrugTypesAsync()
+        //                };
+
+        //                return ApiResponse<DashboardAnalyticsDto>.SuccessResult(result, "Dashboard analytics retrieved successfully");
+        //            }
+        //            catch (Exception ex)
+        //            {
+        //                return ApiResponse<DashboardAnalyticsDto>.ErrorResult(new List<string> { ex.Message });
+        //            }
+        //        }
+
         public async Task<ApiResponse<DashboardAnalyticsDto>> GetDashboardAnalyticsAsync(DashboardFilterRequestDto request)
         {
             try
@@ -346,28 +459,33 @@ namespace TatiPharma.Application.Services
                 var ytdStart = new DateTime(now.Year, 1, 1);
                 var ytdEnd = now;
 
-                // KPIs
+                // KPIs (use City)
                 var kpis = new DashboardKpiDto
                 {
-                    TotalSalesYtd = await _salesAnalyticsRepository.GetTotalSalesYtdAsync(ytdStart, ytdEnd, request.Region, request.ProductCategory),
-                    SalesGrowth = await _salesAnalyticsRepository.GetSalesGrowthAsync(start, end, prevStart, prevEnd, request.Region, request.ProductCategory),
-                    ActivePharmacies = await _salesAnalyticsRepository.GetActivePharmaciesCountAsync(request.Region, request.Search),
-                    TotalCustomers = await _salesAnalyticsRepository.GetTotalCustomersCountAsync(request.Region, request.Search),
-                    OrderFulfillment = await _salesAnalyticsRepository.GetOrderFulfillmentAsync(start, end, request.Region, request.ProductCategory),
-                    FulfillmentChange = await _salesAnalyticsRepository.GetFulfillmentChangeAsync(start, end, prevStart, prevEnd, request.Region, request.ProductCategory)
+                    TotalSalesYtd = await _salesAnalyticsRepository.GetTotalSalesYtdAsync(ytdStart, ytdEnd, request.City, request.ProductCategory),
+                    SalesGrowth = await _salesAnalyticsRepository.GetSalesGrowthAsync(start, end, prevStart, prevEnd, request.City, request.ProductCategory),
+                    ActivePharmacies = await _salesAnalyticsRepository.GetActivePharmaciesCountAsync(request.City, request.Search),
+                    TotalCustomers = await _salesAnalyticsRepository.GetTotalCustomersCountAsync(request.City, request.Search),
+                    OrderFulfillment = await _salesAnalyticsRepository.GetOrderFulfillmentAsync(start, end, request.City, request.ProductCategory),
+                    FulfillmentChange = await _salesAnalyticsRepository.GetFulfillmentChangeAsync(start, end, prevStart, prevEnd, request.City, request.ProductCategory)
                 };
 
                 // Revenue Performance
-                var revenuePerformance = await _salesAnalyticsRepository.GetRevenuePerformanceAsync(now.Year, request.Region, request.ProductCategory);
+                var revenueYear = await _salesAnalyticsRepository.GetDataYearAsync();
+                var revenuePerformance = await _salesAnalyticsRepository.GetRevenuePerformanceAsync(revenueYear, request.City, request.ProductCategory);
 
                 // Product Categories
                 var productCategories = await _salesAnalyticsRepository.GetProductCategoriesShareAsync(start, end, request.ProductCategory);
 
                 // Regional Performance
-                var regionalPerformance = await _salesAnalyticsRepository.GetRegionalPerformanceAsync(start, end, request.Region, request.ProductCategory);
+                var regionalPerformance = await _salesAnalyticsRepository.GetRegionalPerformanceAsync(start, end, request.City, request.ProductCategory);
 
-                // Top Pharmacies
-                var topPharmacies = await _salesAnalyticsRepository.GetTopPharmaciesAsync(start, end, request.Region, request.ProductCategory, request.Search);
+                // Top Pharmacies – USE YTD TO CAPTURE ALL DATA
+                var topPharmacies = await _salesAnalyticsRepository.GetTopPharmaciesAsync(
+                    ytdStart, ytdEnd,  // ← CHANGED: Use full year
+                    request.City,
+                    request.ProductCategory,
+                    request.Search);
 
                 var result = new DashboardAnalyticsDto
                 {
@@ -375,7 +493,10 @@ namespace TatiPharma.Application.Services
                     RevenuePerformance = revenuePerformance,
                     ProductCategories = productCategories,
                     RegionalPerformance = regionalPerformance,
-                    TopPharmacies = topPharmacies
+                    TopPharmacies = topPharmacies,
+                    Cities = await _salesAnalyticsRepository.GetCitiesAsync(),
+                    Products = await _salesAnalyticsRepository.GetProductsAsync(request.Search),
+                    DrugTypes = await _salesAnalyticsRepository.GetDrugTypesAsync()
                 };
 
                 return ApiResponse<DashboardAnalyticsDto>.SuccessResult(result, "Dashboard analytics retrieved successfully");

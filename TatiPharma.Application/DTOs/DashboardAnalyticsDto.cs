@@ -13,5 +13,9 @@ namespace TatiPharma.Application.DTOs
         public List<ProductCategoryShareDto> ProductCategories { get; set; } = new List<ProductCategoryShareDto>();
         public List<RegionalRevenueDto> RegionalPerformance { get; set; } = new List<RegionalRevenueDto>();
         public List<TopPharmacyDto> TopPharmacies { get; set; } = new List<TopPharmacyDto>();
+
+        public List<CityDto> Cities { get; set; } = new List<CityDto>();
+        public List<ProductDropdownDto> Products { get; set; } = new List<ProductDropdownDto>();
+        public List<DrugTypeDropdownDto> DrugTypes { get; set; } = new List<DrugTypeDropdownDto>();
     }
 }

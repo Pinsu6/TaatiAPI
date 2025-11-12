@@ -25,38 +25,94 @@ namespace TatiPharma.Infrastructure.Repositories
                 _context = context;
             }
 
+        //    private IQueryable<SalesInvoiceDetail> GetFilteredQuery(
+        //DateTime start, DateTime end,
+        //string? region = null, string? category = null)
+        //    {
+        //        var query = _context.SalesInvoiceDetails
+        //            .Include(d => d.SalesInvoice!)
+        //                .ThenInclude(i => i!.Customer)
+        //            .Include(d => d.Drug!)
+        //                .ThenInclude(dm => dm!.DrugTypeMaster) // ✅ Add this
+        //            .Where(d =>
+        //                d.SalesInvoice != null &&
+        //                d.SalesInvoice.BillDate.HasValue &&
+        //                d.SalesInvoice.BillDate.Value.Date >= start.Date &&
+        //                d.SalesInvoice.BillDate.Value.Date <= end.Date &&
+        //                d.IsActive == true &&
+        //                d.IsDeleted != true &&
+        //                d.SalesInvoice.IsActive == true &&
+        //                d.SalesInvoice.IsDeleted != true);
+
+        //        if (!string.IsNullOrEmpty(region))
+        //            query = query.Where(d => d.SalesInvoice!.Customer!.Region == region);
+
+        //        if (!string.IsNullOrEmpty(category))
+        //        {
+        //            // ✅ CHANGE THIS:
+        //            query = query.Where(d =>
+        //                (!string.IsNullOrEmpty(d.Drug!.TheRapeuticclass) && d.Drug.TheRapeuticclass == category) ||
+        //                (string.IsNullOrEmpty(d.Drug!.TheRapeuticclass) && d.Drug.DrugTypeMaster!.DrugTypeName == category)
+        //            );
+        //        }
+
+        //        return query;
+        //    }
+
+        //private IQueryable<SalesInvoiceDetail> GetFilteredQuery(
+        //    DateTime start, DateTime end,
+        //    string? city = null, string? category = null) // CHANGED: region → city
+        //{
+        //    var query = _context.SalesInvoiceDetails
+        //        .Include(d => d.SalesInvoice!)
+        //            .ThenInclude(i => i.Customer!)
+        //                .ThenInclude(c => c.CustomerType) // For type if needed
+        //        .Include(d => d.Drug!)
+        //            .ThenInclude(dm => dm.DrugTypeMaster)
+        //        .Where(d =>
+        //            d.SalesInvoice != null &&
+        //            d.SalesInvoice.BillDate.HasValue &&
+        //            d.SalesInvoice.BillDate.Value.Date >= start.Date &&
+        //            d.SalesInvoice.BillDate.Value.Date <= end.Date &&
+        //            d.IsActive == true &&
+        //            d.IsDeleted != true &&
+        //            d.SalesInvoice.IsActive == true &&
+        //            d.SalesInvoice.IsDeleted != true);
+
+        //    if (!string.IsNullOrEmpty(city))
+        //        query = query.Where(d => d.SalesInvoice!.Customer!.City == city); // CHANGED to City
+
+        //    if (!string.IsNullOrEmpty(category))
+        //        query = query.Where(d => d.Drug!.DrugTypeMaster!.DrugTypeName == category); // CHANGED to DrugTypeName only
+
+        //    return query;
+        //}
+
         private IQueryable<SalesInvoiceDetail> GetFilteredQuery(
     DateTime start, DateTime end,
-    string? region = null, string? category = null)
+    string? city = null, string? category = null)
         {
-            var query = _context.SalesInvoiceDetails
+            var q = _context.SalesInvoiceDetails
                 .Include(d => d.SalesInvoice!)
-                    .ThenInclude(i => i!.Customer)
+                    .ThenInclude(i => i.Customer!)
+                        .ThenInclude(c => c.CustomerType)
                 .Include(d => d.Drug!)
-                    .ThenInclude(dm => dm!.DrugTypeMaster) // ✅ Add this
+                    .ThenInclude(dm => dm.DrugTypeMaster)
                 .Where(d =>
                     d.SalesInvoice != null &&
                     d.SalesInvoice.BillDate.HasValue &&
                     d.SalesInvoice.BillDate.Value.Date >= start.Date &&
                     d.SalesInvoice.BillDate.Value.Date <= end.Date &&
-                    d.IsActive == true &&
-                    d.IsDeleted != true &&
-                    d.SalesInvoice.IsActive == true &&
-                    d.SalesInvoice.IsDeleted != true);
+                    d.IsActive == true && d.IsDeleted != true &&
+                    d.SalesInvoice.IsActive == true && d.SalesInvoice.IsDeleted != true);
 
-            if (!string.IsNullOrEmpty(region))
-                query = query.Where(d => d.SalesInvoice!.Customer!.Region == region);
+            if (!string.IsNullOrEmpty(city))
+                q = q.Where(d => d.SalesInvoice!.Customer!.City == city);
 
             if (!string.IsNullOrEmpty(category))
-            {
-                // ✅ CHANGE THIS:
-                query = query.Where(d =>
-                    (!string.IsNullOrEmpty(d.Drug!.TheRapeuticclass) && d.Drug.TheRapeuticclass == category) ||
-                    (string.IsNullOrEmpty(d.Drug!.TheRapeuticclass) && d.Drug.DrugTypeMaster!.DrugTypeName == category)
-                );
-            }
+                q = q.Where(d => d.Drug!.DrugTypeMaster!.DrugTypeName == category);
 
-            return query;
+            return q;
         }
 
         public async Task<decimal> GetTotalSalesAsync(DateTime start, DateTime end,
@@ -73,45 +129,78 @@ namespace TatiPharma.Infrastructure.Repositories
                 return await q.Select(d => d.SalesInvoiceId).Distinct().CountAsync();
             }
 
-            public async Task<List<MonthlySalesRaw>> GetMonthlySalesAsync(int year,
-                string? region = null, string? category = null)
-            {
-                var start = new DateTime(year, 1, 1);
-                var end = new DateTime(year, 12, 31);
+        //public async Task<List<MonthlySalesRaw>> GetMonthlySalesAsync(int year,
+        //    string? region = null, string? category = null)
+        //{
+        //    var start = new DateTime(year, 1, 1);
+        //    var end = new DateTime(year, 12, 31);
 
-                var q = GetFilteredQuery(start, end, region, category);
+        //    var q = GetFilteredQuery(start, end, region, category);
 
-                var grouped = await q
-                    .GroupBy(d => new
-                    {
-                        Month = d.SalesInvoice!.BillDate!.Value.Month,
-                        Type = d.InvoiceType // From SalesInvoiceDetail
-                    })
-                    .Select(g => new
-                    {
-                        g.Key.Month,
-                        g.Key.Type,
-                        Revenue = g.Sum(x => x.TotalAmount ?? 0m)
-                    })
-                    .ToListAsync();
+        //    var grouped = await q
+        //        .GroupBy(d => new
+        //        {
+        //            Month = d.SalesInvoice!.BillDate!.Value.Month,
+        //            Type = d.InvoiceType // From SalesInvoiceDetail
+        //        })
+        //        .Select(g => new
+        //        {
+        //            g.Key.Month,
+        //            g.Key.Type,
+        //            Revenue = g.Sum(x => x.TotalAmount ?? 0m)
+        //        })
+        //        .ToListAsync();
 
-                var result = Enumerable.Range(1, 12)
-                    .Select(m => new MonthlySalesRaw
-                    {
-                        Month = m,
-                        Retail = grouped
-                            .Where(x => x.Month == m && x.Type == "Retail")
-                            .Sum(x => x.Revenue),
-                        Wholesale = grouped
-                            .Where(x => x.Month == m && x.Type == "Wholesale")
-                            .Sum(x => x.Revenue)
-                    })
-                    .ToList();
+        //    var result = Enumerable.Range(1, 12)
+        //        .Select(m => new MonthlySalesRaw
+        //        {
+        //            Month = m,
+        //            Retail = grouped
+        //                .Where(x => x.Month == m && x.Type == "Retail")
+        //                .Sum(x => x.Revenue),
+        //            Wholesale = grouped
+        //                .Where(x => x.Month == m && x.Type == "Wholesale")
+        //                .Sum(x => x.Revenue)
+        //        })
+        //        .ToList();
 
-                return result;
-            }
+        //    return result;
+        //}
 
-            public async Task<List<TopProductDto>> GetTopProductsAsync(
+        public async Task<List<MonthlySalesRaw>> GetMonthlySalesAsync(int year,
+            string? city = null, string? category = null) // CHANGED: region → city
+        {
+            var start = new DateTime(year, 1, 1);
+            var end = new DateTime(year, 12, 31);
+            var q = GetFilteredQuery(start, end, city, category);
+            var grouped = await q
+                .GroupBy(d => new
+                {
+                    Month = d.SalesInvoice!.BillDate!.Value.Month,
+                    Type = d.SalesInvoice.Customer!.CustomerType!.CusTypeName ?? "Wholesale" // CHANGED: Default to Wholesale since no Retail
+                })
+                .Select(g => new
+                {
+                    g.Key.Month,
+                    g.Key.Type,
+                    Revenue = g.Sum(x => x.TotalAmount ?? 0m)
+                })
+                .ToListAsync();
+
+            var result = Enumerable.Range(1, 12)
+                .Select(m => new MonthlySalesRaw
+                {
+                    Month = m,
+                    Retail = 0m, // Always 0 as per note
+                    Wholesale = grouped
+                        .Where(x => x.Month == m)
+                        .Sum(x => x.Revenue) // All to Wholesale
+                })
+                .ToList();
+            return result;
+        }
+
+        public async Task<List<TopProductDto>> GetTopProductsAsync(
                 DateTime start, DateTime end, int topN,
                 string? region = null, string? category = null)
             {
@@ -129,24 +218,40 @@ namespace TatiPharma.Infrastructure.Repositories
                     .ToListAsync();
             }
 
-            public async Task<List<RegionSalesRaw>> GetRegionSalesAsync(
-                DateTime start, DateTime end,
-                string? region = null, string? category = null)
-            {
-                var q = GetFilteredQuery(start, end, region, category);
+        //public async Task<List<RegionSalesRaw>> GetRegionSalesAsync(
+        //    DateTime start, DateTime end,
+        //    string? region = null, string? category = null)
+        //{
+        //    var q = GetFilteredQuery(start, end, region, category);
 
-                return await q
-                    .GroupBy(d => d.SalesInvoice!.Customer!.Region ?? "Unknown")
-                    .Select(g => new RegionSalesRaw
-                    {
-                        Region = g.Key,
-                        Revenue = g.Sum(x => x.TotalAmount ?? 0m),
-                        Orders = g.Select(x => x.SalesInvoiceId).Distinct().Count()
-                    })
-                    .ToListAsync();
-            }
+        //    return await q
+        //        .GroupBy(d => d.SalesInvoice!.Customer!.Region ?? "Unknown")
+        //        .Select(g => new RegionSalesRaw
+        //        {
+        //            Region = g.Key,
+        //            Revenue = g.Sum(x => x.TotalAmount ?? 0m),
+        //            Orders = g.Select(x => x.SalesInvoiceId).Distinct().Count()
+        //        })
+        //        .ToListAsync();
+        //}
 
-       
+
+        public async Task<List<RegionSalesRaw>> GetRegionSalesAsync(
+            DateTime start, DateTime end,
+            string? city = null, string? category = null) // CHANGED: region → city
+        {
+            var q = GetFilteredQuery(start, end, city, category);
+            return await q
+                .GroupBy(d => d.SalesInvoice!.Customer!.City ?? "Unknown") // CHANGED to City
+                .Select(g => new RegionSalesRaw
+                {
+                    Region = g.Key,
+                    Revenue = g.Sum(x => x.TotalAmount ?? 0m),
+                    Orders = g.Select(x => x.SalesInvoiceId).Distinct().Count()
+                })
+                .ToListAsync();
+        }
+
         public async Task<decimal> GetTotalStockValueAsync(string? category = null, long? drugTypeId = null)
         {
             var q = GetInventoryQuery(category, drugTypeId);
@@ -290,23 +395,44 @@ namespace TatiPharma.Infrastructure.Repositories
                 });
         }
 
-        public async Task<decimal> GetTotalSalesYtdAsync(DateTime ytdStart, DateTime ytdEnd, string? region, string? category)
+        //public async Task<decimal> GetTotalSalesYtdAsync(DateTime ytdStart, DateTime ytdEnd, string? region, string? category)
+        //{
+        //    var q = GetFilteredQuery(ytdStart, ytdEnd, region, category);
+        //    return await q.SumAsync(d => d.TotalAmount ?? 0m);
+        //}
+
+        public async Task<decimal> GetTotalSalesYtdAsync(DateTime ytdStart, DateTime ytdEnd, string? city, string? category) // CHANGED param
         {
-            var q = GetFilteredQuery(ytdStart, ytdEnd, region, category);
+            var q = GetFilteredQuery(ytdStart, ytdEnd, city, category);
             return await q.SumAsync(d => d.TotalAmount ?? 0m);
         }
 
-        public async Task<decimal> GetSalesGrowthAsync(DateTime currentStart, DateTime currentEnd, DateTime prevStart, DateTime prevEnd, string? region, string? category)
+        //public async Task<decimal> GetSalesGrowthAsync(DateTime currentStart, DateTime currentEnd, DateTime prevStart, DateTime prevEnd, string? region, string? category)
+        //{
+        //    var currentSales = await GetTotalSalesAsync(currentStart, currentEnd, region, category);
+        //    var prevSales = await GetTotalSalesAsync(prevStart, prevEnd, region, category);
+        //    return CalculateGrowth(currentSales, prevSales);
+        //}
+
+        public async Task<decimal> GetSalesGrowthAsync(DateTime currentStart, DateTime currentEnd, DateTime prevStart, DateTime prevEnd, string? city, string? category) // CHANGED param
         {
-            var currentSales = await GetTotalSalesAsync(currentStart, currentEnd, region, category);
-            var prevSales = await GetTotalSalesAsync(prevStart, prevEnd, region, category);
+            var currentSales = await GetTotalSalesAsync(currentStart, currentEnd, city, category);
+            var prevSales = await GetTotalSalesAsync(prevStart, prevEnd, city, category);
             return CalculateGrowth(currentSales, prevSales);
         }
 
-        public async Task<int> GetActivePharmaciesCountAsync(string? region, string? search)
+        //public async Task<int> GetActivePharmaciesCountAsync(string? region, string? search)
+        //{
+        //    var q = _context.Customers.Where(c => c.BitIsActive == true && c.BitIsDelete != true);
+        //    if (!string.IsNullOrEmpty(region)) q = q.Where(c => c.Region == region);
+        //    if (!string.IsNullOrEmpty(search)) q = q.Where(c => (c.CusFirstname + " " + c.CusLastname).Contains(search) || c.CusCode.Contains(search));
+        //    return await q.CountAsync();
+        //}
+
+        public async Task<int> GetActivePharmaciesCountAsync(string? city, string? search) // CHANGED param
         {
             var q = _context.Customers.Where(c => c.BitIsActive == true && c.BitIsDelete != true);
-            if (!string.IsNullOrEmpty(region)) q = q.Where(c => c.Region == region);
+            if (!string.IsNullOrEmpty(city)) q = q.Where(c => c.City == city); // CHANGED to City
             if (!string.IsNullOrEmpty(search)) q = q.Where(c => (c.CusFirstname + " " + c.CusLastname).Contains(search) || c.CusCode.Contains(search));
             return await q.CountAsync();
         }
@@ -319,39 +445,82 @@ namespace TatiPharma.Infrastructure.Repositories
             return await q.CountAsync();
         }
 
-        public async Task<decimal> GetOrderFulfillmentAsync(DateTime start, DateTime end, string? region, string? category)
+        //public async Task<decimal> GetOrderFulfillmentAsync(DateTime start, DateTime end, string? region, string? category)
+        //{
+        //    var totalOrders = await GetOrderCountAsync(start, end, region, category);
+        //    var fulfilled = await _context.SalesInvoices
+        //        .Where(i => i.BillDate >= start && i.BillDate <= end && i.PaymentStatus == "Paid")
+        //        .CountAsync();
+        //    return totalOrders > 0 ? (decimal)fulfilled / totalOrders * 100 : 0m;
+        //}
+
+        public async Task<decimal> GetOrderFulfillmentAsync(DateTime start, DateTime end, string? city, string? category) // CHANGED param
         {
-            var totalOrders = await GetOrderCountAsync(start, end, region, category);
+            var totalOrders = await GetOrderCountAsync(start, end, city, category);
             var fulfilled = await _context.SalesInvoices
+                .Include(si => si.Customer)
                 .Where(i => i.BillDate >= start && i.BillDate <= end && i.PaymentStatus == "Paid")
+                .Where(i => string.IsNullOrEmpty(city) || i.Customer!.City == city)
                 .CountAsync();
             return totalOrders > 0 ? (decimal)fulfilled / totalOrders * 100 : 0m;
         }
 
-        public async Task<decimal> GetFulfillmentChangeAsync(DateTime currentStart, DateTime currentEnd, DateTime prevStart, DateTime prevEnd, string? region, string? category)
+        //public async Task<decimal> GetFulfillmentChangeAsync(DateTime currentStart, DateTime currentEnd, DateTime prevStart, DateTime prevEnd, string? region, string? category)
+        //{
+        //    var current = await GetOrderFulfillmentAsync(currentStart, currentEnd, region, category);
+        //    var prev = await GetOrderFulfillmentAsync(prevStart, prevEnd, region, category);
+        //    return current - prev;
+        //}
+
+        public async Task<decimal> GetFulfillmentChangeAsync(DateTime currentStart, DateTime currentEnd, DateTime prevStart, DateTime prevEnd, string? city, string? category) // CHANGED param
         {
-            var current = await GetOrderFulfillmentAsync(currentStart, currentEnd, region, category);
-            var prev = await GetOrderFulfillmentAsync(prevStart, prevEnd, region, category);
+            var current = await GetOrderFulfillmentAsync(currentStart, currentEnd, city, category);
+            var prev = await GetOrderFulfillmentAsync(prevStart, prevEnd, city, category);
             return current - prev;
         }
 
-        public async Task<List<MonthlyRevenueDto>> GetRevenuePerformanceAsync(int year, string? region, string? category)
+        //public async Task<List<MonthlyRevenueDto>> GetRevenuePerformanceAsync(int year, string? region, string? category)
+        //{
+        //    var raw = await GetMonthlySalesAsync(year, region, category);
+        //    return raw.Select(r => new MonthlyRevenueDto
+        //    {
+        //        Month = r.Month.ToString(), // or use month name if needed
+        //        Retail = r.Retail,
+        //        Wholesale = r.Wholesale
+        //    }).ToList(); // Reuse from sales
+        //}
+
+        public async Task<List<MonthlyRevenueDto>> GetRevenuePerformanceAsync(int year, string? city, string? category) // CHANGED param
         {
-            var raw = await GetMonthlySalesAsync(year, region, category);
+            var raw = await GetMonthlySalesAsync(year, city, category);
             return raw.Select(r => new MonthlyRevenueDto
             {
-                Month = r.Month.ToString(), // or use month name if needed
+                Month = System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetAbbreviatedMonthName(r.Month),
                 Retail = r.Retail,
                 Wholesale = r.Wholesale
-            }).ToList(); // Reuse from sales
+            }).ToList();
         }
+
+        //public async Task<List<ProductCategoryShareDto>> GetProductCategoriesShareAsync(DateTime start, DateTime end, string? category)
+        //{
+        //    var q = GetFilteredQuery(start, end, null, category);
+        //    var total = await q.SumAsync(d => d.TotalAmount ?? 0m);
+        //    return await q
+        //        .GroupBy(d => d.Drug!.TheRapeuticclass ?? "Unknown")
+        //        .Select(g => new ProductCategoryShareDto
+        //        {
+        //            Category = g.Key,
+        //            Share = total > 0 ? g.Sum(d => d.TotalAmount ?? 0m) / total * 100 : 0m
+        //        })
+        //        .ToListAsync();
+        //}
 
         public async Task<List<ProductCategoryShareDto>> GetProductCategoriesShareAsync(DateTime start, DateTime end, string? category)
         {
             var q = GetFilteredQuery(start, end, null, category);
             var total = await q.SumAsync(d => d.TotalAmount ?? 0m);
             return await q
-                .GroupBy(d => d.Drug!.TheRapeuticclass ?? "Unknown")
+                .GroupBy(d => d.Drug!.DrugTypeMaster!.DrugTypeName ?? "Unknown") // CHANGED to DrugTypeName
                 .Select(g => new ProductCategoryShareDto
                 {
                     Category = g.Key,
@@ -360,11 +529,24 @@ namespace TatiPharma.Infrastructure.Repositories
                 .ToListAsync();
         }
 
-        public async Task<List<RegionalRevenueDto>> GetRegionalPerformanceAsync(DateTime start, DateTime end, string? region, string? category)
+        //public async Task<List<RegionalRevenueDto>> GetRegionalPerformanceAsync(DateTime start, DateTime end, string? region, string? category)
+        //{
+        //    var q = GetFilteredQuery(start, end, region, category);
+        //    return await q
+        //        .GroupBy(d => d.SalesInvoice!.Customer!.Region ?? "Unknown")
+        //        .Select(g => new RegionalRevenueDto
+        //        {
+        //            Region = g.Key,
+        //            Revenue = g.Sum(d => d.TotalAmount ?? 0m)
+        //        })
+        //        .ToListAsync();
+        //}
+
+        public async Task<List<RegionalRevenueDto>> GetRegionalPerformanceAsync(DateTime start, DateTime end, string? city, string? category) // CHANGED param
         {
-            var q = GetFilteredQuery(start, end, region, category);
+            var q = GetFilteredQuery(start, end, city, category);
             return await q
-                .GroupBy(d => d.SalesInvoice!.Customer!.Region ?? "Unknown")
+                .GroupBy(d => d.SalesInvoice!.Customer!.City ?? "Unknown") // CHANGED to City
                 .Select(g => new RegionalRevenueDto
                 {
                     Region = g.Key,
@@ -373,36 +555,194 @@ namespace TatiPharma.Infrastructure.Repositories
                 .ToListAsync();
         }
 
-        public async Task<List<TopPharmacyDto>> GetTopPharmaciesAsync(DateTime start, DateTime end, string? region, string? category, string? search, int topN = 10)
+        //public async Task<List<TopPharmacyDto>> GetTopPharmaciesAsync(DateTime start, DateTime end, string? region, string? category, string? search, int topN = 10)
+        //{
+        //    var q = GetFilteredQuery(start, end, region, category);
+        //    var grouped = q.GroupBy(d => d.SalesInvoice!.CustomerId)
+        //        .Select(g => new
+        //        {
+        //            CustomerId = g.Key,
+        //            Revenue = g.Sum(d => d.TotalAmount ?? 0m)
+        //        });
+
+        //    var top = await grouped.OrderByDescending(g => g.Revenue).Take(topN).ToListAsync();
+
+        //    var pharmacies = await _context.Customers
+        //        .Where(c => top.Select(t => t.CustomerId).Contains(c.CustomerId))
+        //        .Where(c => string.IsNullOrEmpty(search) || (c.CusFirstname + " " + c.CusLastname).Contains(search))
+        //        .Select(c => new TopPharmacyDto
+        //        {
+        //            Name = c.CusFirstname + " " + c.CusLastname ?? "Unknown",
+        //            Region = c.Region ?? "Unknown",
+        //            Revenue = 0 // To be filled
+        //        })
+        //        .ToListAsync();
+
+        //    foreach (var p in pharmacies)
+        //    {
+        //        p.Revenue = top.FirstOrDefault(t => t.CustomerId == _context.Customers.First(c => c.CusFirstname + " " + c.CusLastname == p.Name).CustomerId)?.Revenue ?? 0m;
+        //    }
+
+        //    return pharmacies;
+        //}
+
+        //public async Task<List<TopPharmacyDto>> GetTopPharmaciesAsync(DateTime start, DateTime end, string? city, string? category, string? search, int topN = 10) // CHANGED param
+        //{
+        //    var q = GetFilteredQuery(start, end, city, category);
+        //    var grouped = await q.GroupBy(d => d.SalesInvoice!.CustomerId)
+        //        .Select(g => new
+        //        {
+        //            CustomerId = g.Key,
+        //            Revenue = g.Sum(d => d.TotalAmount ?? 0m)
+        //        })
+        //        .OrderByDescending(g => g.Revenue)
+        //        .Take(topN)
+        //        .ToListAsync();
+
+        //    var customerIds = grouped.Select(g => g.CustomerId).ToList();
+
+        //    var pharmacies = await _context.Customers
+        //        .Where(c => customerIds.Contains(c.CustomerId))
+        //        .Where(c => string.IsNullOrEmpty(search) || (c.CusFirstname + " " + c.CusLastname).Contains(search))
+        //        .Select(c => new
+        //        {
+        //            c.CustomerId,
+        //            Name = (c.CusFirstname + " " + c.CusLastname) ?? "Unknown",
+        //            City = c.City ?? "Unknown"
+        //        })
+        //        .ToListAsync();
+
+        //    return pharmacies.Select(p => new TopPharmacyDto
+        //    {
+        //        Name = p.Name,
+        //        Region = p.City, // CHANGED to City
+        //        Revenue = grouped.FirstOrDefault(g => g.CustomerId == p.CustomerId)?.Revenue ?? 0m
+        //    }).ToList();
+        //}
+
+        public async Task<List<TopPharmacyDto>> GetTopPharmaciesAsync(
+    DateTime start,
+    DateTime end,
+    string? city,
+    string? category,
+    string? search,
+    int topN = 10)
         {
-            var q = GetFilteredQuery(start, end, region, category);
-            var grouped = q.GroupBy(d => d.SalesInvoice!.CustomerId)
-                .Select(g => new
-                {
-                    CustomerId = g.Key,
-                    Revenue = g.Sum(d => d.TotalAmount ?? 0m)
-                });
+            var query = _context.SalesInvoiceDetails
+                .Include(d => d.SalesInvoice!)
+                    .ThenInclude(i => i.Customer!)
+                        .ThenInclude(c => c.CustomerType)
+                .Include(d => d.Drug!)
+                    .ThenInclude(dm => dm.DrugTypeMaster)
+                .Where(d =>
+                    d.SalesInvoice != null &&
+                    d.SalesInvoice.BillDate.HasValue &&
+                    d.SalesInvoice.BillDate.Value.Date >= start.Date &&
+                    d.SalesInvoice.BillDate.Value.Date <= end.Date &&
+                    d.IsActive == true && d.IsDeleted != true &&
+                    d.SalesInvoice.IsActive == true && d.SalesInvoice.IsDeleted != true &&
+                    d.SalesInvoice.Customer!.CustomerType!.CusTypeName == "Pharmacy"); // Only Pharmacies
 
-            var top = await grouped.OrderByDescending(g => g.Revenue).Take(topN).ToListAsync();
+            // City filter
+            if (!string.IsNullOrWhiteSpace(city))
+                query = query.Where(d => d.SalesInvoice!.Customer!.City == city);
 
-            var pharmacies = await _context.Customers
-                .Where(c => top.Select(t => t.CustomerId).Contains(c.CustomerId))
-                .Where(c => string.IsNullOrEmpty(search) || (c.CusFirstname + " " + c.CusLastname).Contains(search))
-                .Select(c => new TopPharmacyDto
+            // Category filter
+            if (!string.IsNullOrWhiteSpace(category))
+                query = query.Where(d => d.Drug!.DrugTypeMaster!.DrugTypeName == category);
+
+            // Search by name
+            if (!string.IsNullOrWhiteSpace(search))
+                query = query.Where(d =>
+                    (d.SalesInvoice!.Customer!.CusFirstname + " " + d.SalesInvoice!.Customer!.CusLastname).Contains(search));
+
+            var result = await query
+                .GroupBy(d => new
                 {
-                    Name = c.CusFirstname + " " + c.CusLastname ?? "Unknown",
-                    Region = c.Region ?? "Unknown",
-                    Revenue = 0 // To be filled
+                    d.SalesInvoice!.CustomerId,
+                    Name = (d.SalesInvoice!.Customer!.CusFirstname + " " + d.SalesInvoice!.Customer!.CusLastname).Trim(),
+                    City = d.SalesInvoice!.Customer!.City ?? "Unknown"
                 })
+                .Select(g => new TopPharmacyDto
+                {
+                    Name = g.Key.Name,
+                    Region = g.Key.City,
+                    Revenue = g.Sum(x => x.TotalAmount ?? 0m)
+                })
+                .OrderByDescending(x => x.Revenue)
+                .Take(topN)
                 .ToListAsync();
 
-            foreach (var p in pharmacies)
-            {
-                p.Revenue = top.FirstOrDefault(t => t.CustomerId == _context.Customers.First(c => c.CusFirstname + " " + c.CusLastname == p.Name).CustomerId)?.Revenue ?? 0m;
-            }
-
-            return pharmacies;
+            return result;
         }
+
+        public async Task<List<CityDto>> GetCitiesAsync()
+        {
+            return await _context.Customers
+                .Where(c => !string.IsNullOrEmpty(c.City))
+                .Select(c => new CityDto { CityName = c.City! })
+                .Distinct()
+                .ToListAsync();
+        }
+
+        //public async Task<List<ProductDropdownDto>> GetProductsAsync(string? search)
+        //{
+        //    var query = _context.DrugMasters
+        //        .Where(d => d.BitIsActive == true && !d.BitIsDelete.GetValueOrDefault(false));
+
+        //    if (!string.IsNullOrEmpty(search))
+        //        query = query.Where(d => d.DrugName!.Contains(search));
+
+        //    return await query
+        //        .Select(d => new ProductDropdownDto
+        //        {
+        //            drugId = d.DrugId,
+        //            drugName = d.DrugName ?? string.Empty
+        //        })
+        //        .ToListAsync();
+        //}
+
+        public async Task<List<ProductDropdownDto>> GetProductsAsync(string? search)
+        {
+            var query = _context.DrugMasters
+                .Where(d => d.BitIsActive == true && (d.BitIsDelete == null || d.BitIsDelete == false));
+
+            if (!string.IsNullOrWhiteSpace(search))
+                query = query.Where(d => d.DrugName != null && d.DrugName.Contains(search));
+
+            return await query
+                .Select(d => new ProductDropdownDto
+                {
+                    drugId = d.DrugId,
+                    drugName = d.DrugName ?? string.Empty
+                })
+                .ToListAsync();
+        }
+
+        public async Task<List<DrugTypeDropdownDto>> GetDrugTypesAsync()
+        {
+            return await _context.DrugTypeMasters
+                .Where(dt => dt.BitIsActive == true &&
+                             (dt.BitIsDelete == null || dt.BitIsDelete == false))
+                .Select(dt => new DrugTypeDropdownDto
+                {
+                    DrugTypeId = dt.DrugTypeId,
+                    DrugTypeName = dt.DrugTypeName ?? string.Empty
+                })
+                .ToListAsync();
+        }
+
+        //public async Task<List<DrugTypeDropdownDto>> GetDrugTypesAsync()
+        //{
+        //    return await _context.DrugTypeMasters
+        //        .Where(dt => dt.BitIsActive == true && !dt.BitIsDelete.GetValueOrDefault(false))
+        //        .Select(dt => new DrugTypeDropdownDto
+        //        {
+        //            DrugTypeId = dt.DrugTypeId,
+        //            DrugTypeName = dt.DrugTypeName ?? string.Empty
+        //        })
+        //        .ToListAsync();
+        //}
 
         //+++++++
         // Helper: Filtered query (updated for DrugTypeId)
@@ -566,6 +906,33 @@ namespace TatiPharma.Infrastructure.Repositories
                 .GroupBy(pd => pd.DrugId)
                 .Select(g => new ProductStockRaw { DrugId = g.Key, RemainStock = g.Sum(x => x.RemainStock ?? 0) })
                 .ToListAsync();
+        }
+
+        // NEW: Detect year with most data (to avoid 0s in 2025 if data is 2024)
+        //private async Task<int> GetDataYearAsync()
+        //{
+        //    var latestBillDate = await _context.SalesInvoices
+        //        .Where(i => i.BillDate.HasValue)
+        //        .MaxAsync(i => i.BillDate); // Select full DateTime?
+
+        //    return latestBillDate?.Year ?? DateTime.UtcNow.Year;
+        //}
+
+        public async Task<int> GetDataYearAsync()
+        {
+            try
+            {
+                var latestBillDate = await _context.SalesInvoices
+                    .Where(i => i.BillDate.HasValue)
+                    .MaxAsync(i => i.BillDate); // Gets the latest DateTime?
+
+                return latestBillDate?.Year ?? DateTime.UtcNow.Year;
+            }
+            catch
+            {
+                // If no data or error, fallback to current year
+                return DateTime.UtcNow.Year;
+            }
         }
     }
 }
