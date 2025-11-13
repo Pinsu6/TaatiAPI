@@ -7,6 +7,7 @@ using TatiPharma.Application.Services;
 
 namespace TatiPharma.API.Controllers
 {
+    //This is Testing Purpose Only
     //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
