@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TatiPharma.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f7a6e4c1d7fbecf62ed7655f73d66f1b65ff3c23")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+63f6aa3bb21fce2494dcb8671e694e4d1427414b")]
 [assembly: System.Reflection.AssemblyProductAttribute("TatiPharma.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TatiPharma.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
