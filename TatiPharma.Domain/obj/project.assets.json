@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\taati\\Api\\TatiPharmaAPI\\TatiPharma.Domain\\TatiPharma.Domain.csproj",
+      "projectUniqueName": "E:\\taati\\API (2)\\API\\TatiPharma.Domain\\TatiPharma.Domain.csproj",
       "projectName": "TatiPharma.Domain",
-      "projectPath": "E:\\taati\\Api\\TatiPharmaAPI\\TatiPharma.Domain\\TatiPharma.Domain.csproj",
+      "projectPath": "E:\\taati\\API (2)\\API\\TatiPharma.Domain\\TatiPharma.Domain.csproj",
       "packagesPath": "C:\\Users\\Prince Bhindi\\.nuget\\packages\\",
-      "outputPath": "E:\\taati\\Api\\TatiPharmaAPI\\TatiPharma.Domain\\obj\\",
+      "outputPath": "E:\\taati\\API (2)\\API\\TatiPharma.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Software\\visual studio setup\\vs sdk\\NuGetPackages"

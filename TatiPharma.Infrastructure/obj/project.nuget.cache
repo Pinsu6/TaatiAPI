@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8wyu6T+AiqA=",
+  "dgSpecHash": "qxz+QTHvkMw=",
   "success": true,
-  "projectFilePath": "E:\\taati\\Api\\TatiPharmaAPI\\TatiPharma.Infrastructure\\TatiPharma.Infrastructure.csproj",
+  "projectFilePath": "E:\\taati\\API (2)\\API\\TatiPharma.Infrastructure\\TatiPharma.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Prince Bhindi\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Prince Bhindi\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

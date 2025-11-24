@@ -3123,11 +3123,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\taati\\Api\\TatiPharmaAPI\\TatiPharma.API\\TatiPharma.API.csproj",
+      "projectUniqueName": "E:\\taati\\API (2)\\API\\TatiPharma.API\\TatiPharma.API.csproj",
       "projectName": "TatiPharma.API",
-      "projectPath": "E:\\taati\\Api\\TatiPharmaAPI\\TatiPharma.API\\TatiPharma.API.csproj",
+      "projectPath": "E:\\taati\\API (2)\\API\\TatiPharma.API\\TatiPharma.API.csproj",
       "packagesPath": "C:\\Users\\Prince Bhindi\\.nuget\\packages\\",
-      "outputPath": "E:\\taati\\Api\\TatiPharmaAPI\\TatiPharma.API\\obj\\",
+      "outputPath": "E:\\taati\\API (2)\\API\\TatiPharma.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Software\\visual studio setup\\vs sdk\\NuGetPackages"
@@ -3148,11 +3148,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "E:\\taati\\Api\\TatiPharmaAPI\\TatiPharma.Application\\TatiPharma.Application.csproj": {
-              "projectPath": "E:\\taati\\Api\\TatiPharmaAPI\\TatiPharma.Application\\TatiPharma.Application.csproj"
+            "E:\\taati\\API (2)\\API\\TatiPharma.Application\\TatiPharma.Application.csproj": {
+              "projectPath": "E:\\taati\\API (2)\\API\\TatiPharma.Application\\TatiPharma.Application.csproj"
             },
-            "E:\\taati\\Api\\TatiPharmaAPI\\TatiPharma.Infrastructure\\TatiPharma.Infrastructure.csproj": {
-              "projectPath": "E:\\taati\\Api\\TatiPharmaAPI\\TatiPharma.Infrastructure\\TatiPharma.Infrastructure.csproj"
+            "E:\\taati\\API (2)\\API\\TatiPharma.Infrastructure\\TatiPharma.Infrastructure.csproj": {
+              "projectPath": "E:\\taati\\API (2)\\API\\TatiPharma.Infrastructure\\TatiPharma.Infrastructure.csproj"
             }
           }
         }
